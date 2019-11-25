@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/tileBrown_02.png" type="Texture" id=1]
+[ext_resource path="res://Square64.tres" type="Shape2D" id=2]
+[ext_resource path="res://Sprites/tileBrown_09.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/tileBrown_23.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/tileBrown_24.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/tileBrown_18.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/tileBrown_27.png" type="Texture" id=7]
+
+[node name="Node2D" type="Node2D"]
+editor/display_folded = true
+
+[node name="MarsSurfaceMid" type="Sprite" parent="."]
+position = Vector2( 96, 96 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MarsSurfaceMid"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarsSurfaceMid/StaticBody2D"]
+shape = ExtResource( 2 )
+
+[node name="MarsOpen" type="Sprite" parent="."]
+position = Vector2( 96, 192 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MarsOpen"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarsOpen/StaticBody2D"]
+shape = ExtResource( 2 )
+
+[node name="MarsSurfaceLeft2" type="Sprite" parent="."]
+position = Vector2( 224, 96 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MarsSurfaceLeft2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarsSurfaceLeft2/StaticBody2D"]
+shape = ExtResource( 2 )
+
+[node name="MarsSurfaceRight" type="Sprite" parent="."]
+position = Vector2( 352, 96 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MarsSurfaceRight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarsSurfaceRight/StaticBody2D"]
+shape = ExtResource( 2 )
+
+[node name="MarsFilled" type="Sprite" parent="."]
+position = Vector2( 224, 192 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MarsFilled"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarsFilled/StaticBody2D"]
+shape = ExtResource( 2 )
+
+[node name="MarsBlank" type="Sprite" parent="."]
+position = Vector2( 352, 192 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MarsBlank"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarsBlank/StaticBody2D"]
+shape = ExtResource( 2 )
