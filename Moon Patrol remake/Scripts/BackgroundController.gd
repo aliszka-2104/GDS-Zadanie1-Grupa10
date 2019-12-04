@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 export (NodePath) var visibilityNotifierPath
 onready var visibilityNotifier = get_node(visibilityNotifierPath)
