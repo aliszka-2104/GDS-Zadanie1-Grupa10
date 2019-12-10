@@ -1,39 +1,49 @@
 extends KinematicBody2D
 
-export (int) var base_speed = 500
-export (int) var speed_up_value = 100
-export (int) var slow_down_value = 100
-export (int) var jump_speed = 500
-export (int) var gravity = 1000
-
 var velocity = Vector2()
 var jumping = false
+var shooted=false
+var horBullet
 const BULLET = preload("res://Scenes/Bullet.tscn")
+const HORIZONTAL_BULLET = preload("res://Scenes/HorizontalBullet.tscn")
+var bullets
+
+func _ready():
+	bullets = get_parent().get_node("HorizontalBullets")
 
 func get_input():
-	velocity.x = base_speed
-	var speed_up = Input.is_action_pressed('speed_up')
-	var slow_down = Input.is_action_pressed('slow_down')
-	var jump = Input.is_action_just_pressed('ui_jump')
-	var shoot = Input.is_action_just_pressed('ui_shoot')
+	velocity.x = Global.base_speed
+	var speed_up = Input.is_action_pressed('ui_right')
+	var slow_down = Input.is_action_pressed('ui_left')
+	var jump = Input.is_action_just_pressed('ui_up')
+	var shoot = Input.is_action_just_pressed('ui_select')
 
 	if jump and is_on_floor():
 		jumping = true
-		velocity.y = -jump_speed
+		velocity.y = -Global.jump_speed
 	if speed_up:
-		velocity.x += speed_up_value
+		velocity.x += Global.speed_up_value
 	if slow_down:
-		velocity.x -= slow_down_value
+		velocity.x -= Global.slow_down_value
 	if shoot:
-		var bullet = BULLET.instance()
-		bullet.position=$Position2D.global_position()
-		get_parent().add_child(bullet)
+		_shoot()
 
 func _physics_process(delta):
 	get_input()
-	velocity.y += gravity * delta
+	velocity.y += Global.gravity * delta
 	if jumping and is_on_floor():
 		jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	
+func _shoot():
+	var bullet = BULLET.instance()
+	bullet.position=$VerticalBulletPosition2D.global_position
+	get_parent().add_child(bullet)
+	
+	if bullets.get_child_count()>0:
+		return
+	horBullet = HORIZONTAL_BULLET.instance()
+	horBullet.position=$HorizontalBulletPosition2D.global_position
+	bullets.add_child(horBullet)
 	
 	

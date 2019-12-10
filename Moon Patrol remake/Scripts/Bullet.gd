@@ -4,8 +4,8 @@ export (int)var  speed = 100
 var velocity = Vector2()
 
 func _ready():
-	pass # Replace with function body.
-
+	speed = Global.verticalBulletSpeed
+	
 func _process(delta):
 	velocity.y=-speed
 	translate(velocity*delta)
