@@ -20,3 +20,8 @@ run/main_scene="res://Scenes/Main.tscn"
 [autoload]
 
 Global="*res://Scenes/Global.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
