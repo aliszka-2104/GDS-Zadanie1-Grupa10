@@ -13,7 +13,6 @@ extents = Vector2( 128, 29.1505 )
 [node name="Scene" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( -32, 0 )
 
 [node name="BG1" type="Node2D" parent="Background"]
@@ -123,10 +122,18 @@ texture = ExtResource( 5 )
 position = Vector2( 5.41647, -19.3445 )
 shape = SubResource( 1 )
 
+[node name="VerticalBulletPosition2D" type="Position2D" parent="Player"]
+position = Vector2( -96, -32 )
+
+[node name="HorizontalBulletPosition2D" type="Position2D" parent="Player"]
+position = Vector2( 128, -19.3445 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 288 )
 current = true
 script = ExtResource( 6 )
+
+[node name="HorizontalBullets" type="Node2D" parent="."]
 [connection signal="screen_exited" from="Background/BG1/VisibilityNotifier2D" to="Background/BG1" method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="screen_exited" from="Background/BG2/VisibilityNotifier2D" to="Background/BG2" method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="screen_exited" from="Background/BG3/VisibilityNotifier2D" to="Background/BG3" method="_on_VisibilityNotifier2D_screen_exited"]
