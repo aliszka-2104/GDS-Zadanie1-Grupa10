@@ -13,6 +13,7 @@ extents = Vector2( 128, 29.1505 )
 [node name="Scene" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( -32, 0 )
 
 [node name="BG1" type="Node2D" parent="Background"]
