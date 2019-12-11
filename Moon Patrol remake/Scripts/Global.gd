@@ -1,9 +1,9 @@
 extends Node2D
 
-export (int) var verticalBulletSpeed = 1000
-export (int) var horizontalBulletSpeed = 1000
-export (int) var base_speed = 500
-export (int) var speed_up_value = 100
-export (int) var slow_down_value = 100
-export (int) var jump_speed = 500
-export (int) var gravity = 1000
+var verticalBulletSpeed = 1000
+var horizontalBulletSpeed = 1000
+var base_speed = 500
+var speed_up_value = 100
+var slow_down_value = 100
+var jump_speed = 500
+var gravity = 1000
