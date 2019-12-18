@@ -4,8 +4,8 @@ var velocity = Vector2()
 var jumping = false
 var shooted=false
 var horBullet
-const BULLET = preload("res://Scenes/Bullet.tscn")
-const HORIZONTAL_BULLET = preload("res://Scenes/HorizontalBullet.tscn")
+const BULLET = preload("res://Scenes/Prefabs/Bullet.tscn")
+const HORIZONTAL_BULLET = preload("res://Scenes/Prefabs/HorizontalBullet.tscn")
 var bullets
 
 func _ready():
@@ -47,3 +47,10 @@ func _shoot():
 	bullets.add_child(horBullet)
 	
 	
+
+func _on_Area2D_area_entered(area):
+	var layer = area.get_collision_layer()
+	if(layer==2):
+		print("dziura")
+	elif(layer==32):
+		print("pprzeszkadzajka")

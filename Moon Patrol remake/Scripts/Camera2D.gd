@@ -8,7 +8,7 @@ var offsetPosition
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("../Player")
-	offsetPosition= position-player.position
+	offsetPosition= position.x-player.position.x
 
 func _physics_process(delta):
-	position = player.position+offsetPosition
+	position.x = player.position.x+offsetPosition
