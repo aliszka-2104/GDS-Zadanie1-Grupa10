@@ -13,3 +13,6 @@ var placeholdersDictionary = {}
 func _ready():
 	placeholdersDictionary["hole"] = preload("res://Scenes/Prefabs/Hole.tscn")
 	placeholdersDictionary["hole1"] = preload("res://Scenes/Prefabs/Hole1.tscn")
+	placeholdersDictionary["rock1"] = preload("res://Scenes/Prefabs/Rock1.tscn")
+	placeholdersDictionary["rock2"] = preload("res://Scenes/Prefabs/Rock2.tscn")
+	placeholdersDictionary["rock3"] = preload("res://Scenes/Prefabs/Rock3.tscn")

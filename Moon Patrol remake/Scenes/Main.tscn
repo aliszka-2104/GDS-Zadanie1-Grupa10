@@ -18,7 +18,6 @@ extents = Vector2( 128, 29.1505 )
 [node name="Terrain" type="Node2D" parent="."]
 
 [node name="LevelDesign" type="Node2D" parent="Terrain"]
-editor/display_folded = true
 script = ExtResource( 1 )
 visibilityNotifierPath = NodePath("../../../Scene/Background/BG1/VisibilityNotifier2D")
 
@@ -65,7 +64,7 @@ tile_data = PoolIntArray( 65534, 8, 0, 65535, 9, 0, 0, 7, 0, 1, 10, 0, 2, 11, 0,
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 256, 256 )
 format = 1
-tile_data = PoolIntArray( 65535, 22, 0, 0, 22, 0, 1, 22, 0, 2, 6, 0, 4, 6, 0, 5, 22, 0, 6, 22, 0, 8, 6, 0 )
+tile_data = PoolIntArray( 65535, 22, 0, 0, 22, 0, 1, 16, 0, 2, 6, 0, 3, 15, 0, 4, 6, 0, 5, 22, 0, 6, 22, 0, 7, 15, 0, 8, 6, 0 )
 script = ExtResource( 5 )
 placeholderTileName = "hole"
 
