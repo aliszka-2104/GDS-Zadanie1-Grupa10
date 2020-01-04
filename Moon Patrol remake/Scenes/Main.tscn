@@ -1,17 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/BackgroundController.gd" type="Script" id=1]
 [ext_resource path="res://TerrainTileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Terrain/background1_1024.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Terrain/background2_1024.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/TilePlaceholderReplacement.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/background1_1024.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=7]
-[ext_resource path="res://Sprites/tesla256.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=9]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 128, 29.1505 )
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=7]
 
 [node name="Scene" type="Node2D"]
 
@@ -50,161 +45,41 @@ texture = ExtResource( 4 )
 [node name="Ground" type="TileMap" parent="Terrain/LevelDesign"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 256, 256 )
+collision_layer = 0
 format = 1
-tile_data = PoolIntArray( 65534, 5, 0, 65535, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0 )
+tile_data = PoolIntArray( 65534, 5, 0, 65535, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 5, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 5, 0, 25, 5, 0, 26, 5, 0, 27, 5, 0, 28, 5, 0, 29, 5, 0, 30, 5, 0, 31, 5, 0, 32, 5, 0, 33, 5, 0, 34, 5, 0, 35, 5, 0, 36, 5, 0, 37, 5, 0, 38, 5, 0, 39, 5, 0, 40, 5, 0, 41, 5, 0, 42, 5, 0, 43, 5, 0, 44, 5, 0, 45, 5, 0, 46, 5, 0, 47, 5, 0, 48, 5, 0, 49, 5, 0, 50, 5, 0, 51, 5, 0, 52, 5, 0, 53, 5, 0, 54, 5, 0, 55, 5, 0, 56, 5, 0, 57, 5, 0, 58, 5, 0, 59, 5, 0, 60, 5, 0, 61, 5, 0, 62, 5, 0, 63, 5, 0, 64, 5, 0, 65, 5, 0, 66, 5, 0, 67, 5, 0, 68, 5, 0, 69, 5, 0, 70, 5, 0, 71, 5, 0, 72, 5, 0, 73, 5, 0, 74, 5, 0, 75, 5, 0, 76, 5, 0 )
 
 [node name="Stone ground" type="TileMap" parent="Terrain/LevelDesign"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 256, 256 )
 cell_custom_transform = Transform2D( 128, 0, 0, 1, 0, 0 )
+collision_layer = 0
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 65534, 8, 0, 65535, 9, 0, 0, 7, 0, 1, 10, 0, 2, 11, 0, 3, 12, 0, 4, 13, 0, 5, 14, 0, 6, 7, 0, 7, 11, 0, 8, 8, 0, 9, 12, 0, 10, 14, 0, 11, 11, 0, 12, 10, 0, 13, 14, 0, 131070, 1073741829, 0, 131071, 1073741829, 0, 65536, 1073741829, 0, 65537, 1073741829, 0, 65538, 1073741829, 0, 65539, 1073741829, 0, 65540, 1073741829, 0, 65541, 1073741829, 0, 65542, 1073741829, 0, 65543, 1073741829, 0, 65544, 1073741829, 0, 65545, 1073741829, 0, 65546, 1073741829, 0, 65547, 1073741829, 0, 65548, 1073741829, 0, 65549, 1073741829, 0 )
 
-[node name="Obstacles" type="TileMap" parent="Terrain/LevelDesign"]
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 256, 256 )
-format = 1
-tile_data = PoolIntArray( 65535, 22, 0, 0, 22, 0, 1, 16, 0, 2, 6, 0, 3, 15, 0, 4, 6, 0, 5, 22, 0, 6, 22, 0, 7, 15, 0, 8, 6, 0 )
-script = ExtResource( 5 )
-placeholderTileName = "hole"
-
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Terrain/LevelDesign"]
+visible = false
 position = Vector2( 3584, 32 )
 scale = Vector2( 3, 60 )
 
-[node name="Prototype" type="Node2D" parent="Terrain"]
-editor/display_folded = true
-visible = false
-
-[node name="BG1" type="Node2D" parent="Terrain/Prototype"]
-editor/display_folded = true
-script = ExtResource( 1 )
-visibilityNotifierPath = NodePath("../../../Scene/Background/BG1/VisibilityNotifier2D")
-
-[node name="Sky" type="TileMap" parent="Terrain/Prototype/BG1"]
-position = Vector2( -992, -128 )
+[node name="Enemies" type="TileMap" parent="Terrain/LevelDesign"]
 tile_set = ExtResource( 2 )
+cell_size = Vector2( 256, 256 )
+collision_layer = 4
 format = 1
-tile_data = PoolIntArray( 0, 1610612736, 0, 4, 1610612736, 0, 8, 1610612736, 0, 12, 1610612736, 0, 262144, 0, 0, 262148, 0, 0, 262152, 0, 0, 262156, 0, 0 )
+script = ExtResource( 5 )
 
-[node name="mountains" type="Sprite" parent="Terrain/Prototype/BG1"]
-position = Vector2( -480, 128 )
-texture = ExtResource( 6 )
-
-[node name="Background" type="TileMap" parent="Terrain/Prototype/BG1"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
+[node name="Obstacles" type="TileMap" parent="Terrain/LevelDesign"]
+cell_size = Vector2( 1024, 1024 )
 format = 1
-tile_data = PoolIntArray( 262144, 3, 0, 262148, 3, 0, 262149, 3, 0, 262151, 3, 0, 262154, 3, 0, 262156, 3, 0, 524288, 4, 0, 524292, 4, 0, 524296, 4, 0, 524300, 4, 0 )
 
-[node name="Ground" type="TileMap" parent="Terrain/Prototype/BG1"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
-format = 1
-tile_data = PoolIntArray( 524288, 1, 0, 524292, 1, 0, 524296, 1, 0, 524300, 2, 0 )
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Terrain/Prototype/BG1"]
-position = Vector2( 64, 118 )
-scale = Vector2( 3, 60 )
-
-[node name="BG2" type="Node2D" parent="Terrain/Prototype"]
-editor/display_folded = true
-position = Vector2( 1024, 0 )
-script = ExtResource( 1 )
-visibilityNotifierPath = NodePath("../../../Scene/Background/BG2/VisibilityNotifier2D")
-
-[node name="Sky" type="TileMap" parent="Terrain/Prototype/BG2"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
-format = 1
-tile_data = PoolIntArray( 0, 1610612736, 0, 4, 1610612736, 0, 8, 1610612736, 0, 12, 1610612736, 0, 262144, 0, 0, 262148, 0, 0, 262152, 0, 0, 262156, 0, 0 )
-
-[node name="mountains" type="Sprite" parent="Terrain/Prototype/BG2"]
-position = Vector2( -480, 128 )
-texture = ExtResource( 6 )
-
-[node name="Background" type="TileMap" parent="Terrain/Prototype/BG2"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
-format = 1
-tile_data = PoolIntArray( 262144, 3, 0, 262148, 3, 0, 262149, 3, 0, 262151, 3, 0, 262154, 3, 0, 262156, 3, 0, 524288, 4, 0, 524292, 4, 0, 524296, 4, 0, 524300, 4, 0 )
-
-[node name="Ground" type="TileMap" parent="Terrain/Prototype/BG2"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
-format = 1
-tile_data = PoolIntArray( 524288, 1, 0, 524292, 1, 0, 524296, 1, 0, 524300, 2, 0 )
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Terrain/Prototype/BG2"]
-position = Vector2( 64, 118 )
-scale = Vector2( 3, 60 )
-
-[node name="BG3" type="Node2D" parent="Terrain/Prototype"]
-editor/display_folded = true
-position = Vector2( 2048, 0 )
-script = ExtResource( 1 )
-visibilityNotifierPath = NodePath("../../../Scene/Background/BG3/VisibilityNotifier2D")
-
-[node name="Sky" type="TileMap" parent="Terrain/Prototype/BG3"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
-format = 1
-tile_data = PoolIntArray( 0, 1610612736, 0, 4, 1610612736, 0, 8, 1610612736, 0, 12, 1610612736, 0, 262144, 0, 0, 262148, 0, 0, 262152, 0, 0, 262156, 0, 0 )
-
-[node name="mountains" type="Sprite" parent="Terrain/Prototype/BG3"]
-position = Vector2( -480, 128 )
-texture = ExtResource( 6 )
-
-[node name="Background" type="TileMap" parent="Terrain/Prototype/BG3"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
-format = 1
-tile_data = PoolIntArray( 262144, 3, 0, 262148, 3, 0, 262149, 3, 0, 262151, 3, 0, 262154, 3, 0, 262156, 3, 0, 524288, 4, 0, 524292, 4, 0, 524296, 4, 0, 524300, 4, 0 )
-
-[node name="Ground" type="TileMap" parent="Terrain/Prototype/BG3"]
-position = Vector2( -992, -128 )
-tile_set = ExtResource( 2 )
-format = 1
-tile_data = PoolIntArray( 524288, 1, 0, 524292, 1, 0, 524296, 1, 0, 524300, 2, 0 )
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Terrain/Prototype/BG3"]
-position = Vector2( 64, 118 )
-scale = Vector2( 3, 60 )
-
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( -256, 170 )
-collision_mask = 2
-script = ExtResource( 7 )
-
-[node name="Sprite" type="Sprite" parent="Player"]
-position = Vector2( 0, -96 )
-texture = ExtResource( 8 )
-
-[node name="VerticalBulletPosition2D" type="Position2D" parent="Player"]
-position = Vector2( -96, -32 )
-
-[node name="HorizontalBulletPosition2D" type="Position2D" parent="Player"]
-position = Vector2( 128, -19.3445 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 5.41647, -19.3445 )
-shape = SubResource( 1 )
-
-[node name="Area2D" type="Area2D" parent="Player"]
-editor/display_folded = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2( 5.41647, -19.3445 )
-shape = SubResource( 1 )
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( -341, 120 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -2, 0 )
 current = true
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 
 [node name="HorizontalBullets" type="Node2D" parent="."]
 [connection signal="screen_exited" from="Terrain/LevelDesign/VisibilityNotifier2D" to="Terrain/LevelDesign" method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="screen_exited" from="Terrain/Prototype/BG1/VisibilityNotifier2D" to="Terrain/Prototype/BG1" method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="screen_exited" from="Terrain/Prototype/BG2/VisibilityNotifier2D" to="Terrain/Prototype/BG2" method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="screen_exited" from="Terrain/Prototype/BG3/VisibilityNotifier2D" to="Terrain/Prototype/BG3" method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_Area2D_area_entered"]

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=20 format=2]
+[gd_resource type="TileSet" load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/Terrain/windRocks4.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Terrain/windRocks5.png" type="Texture" id=2]
@@ -13,18 +13,20 @@
 [ext_resource path="res://Sprites/Terrain/rock5.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Terrain/rock4.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Terrain/hole1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Terrain/ground.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Terrain/hole.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Terrain/windRocks3.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Terrain/windRocks1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Terrain/windRocks2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/aliens.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Prototype/jetEngine3.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Terrain/ground.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Terrain/hole.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Terrain/windRocks3.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Terrain/windRocks1.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Terrain/windRocks2.png" type="Texture" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 224, 256, 224, 256, 256, 0, 256 )
 
 [resource]
 5/name = "ground"
-5/texture = ExtResource( 14 )
+5/texture = ExtResource( 16 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 256, 256 )
@@ -40,7 +42,7 @@ points = PoolVector2Array( 0, 224, 256, 224, 256, 256, 0, 256 )
 } ]
 5/z_index = 0
 6/name = "hole"
-6/texture = ExtResource( 15 )
+6/texture = ExtResource( 17 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 256, 256 )
@@ -50,7 +52,7 @@ points = PoolVector2Array( 0, 224, 256, 224, 256, 256, 0, 256 )
 6/shapes = [  ]
 6/z_index = 0
 7/name = "windRocks3"
-7/texture = ExtResource( 16 )
+7/texture = ExtResource( 18 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 256, 256 )
@@ -60,7 +62,7 @@ points = PoolVector2Array( 0, 224, 256, 224, 256, 256, 0, 256 )
 7/shapes = [  ]
 7/z_index = 0
 8/name = "windRocks1"
-8/texture = ExtResource( 17 )
+8/texture = ExtResource( 19 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 256, 256 )
@@ -70,7 +72,7 @@ points = PoolVector2Array( 0, 224, 256, 224, 256, 256, 0, 256 )
 8/shapes = [  ]
 8/z_index = 0
 9/name = "windRocks2"
-9/texture = ExtResource( 18 )
+9/texture = ExtResource( 20 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 256, 256 )
@@ -209,3 +211,23 @@ points = PoolVector2Array( 0, 224, 256, 224, 256, 256, 0, 256 )
 22/navigation_offset = Vector2( 128, 128 )
 22/shapes = [  ]
 22/z_index = 0
+23/name = "aliens"
+23/texture = ExtResource( 14 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 0, 0, 64, 64 )
+23/tile_mode = 0
+23/occluder_offset = Vector2( 32, 32 )
+23/navigation_offset = Vector2( 32, 32 )
+23/shapes = [  ]
+23/z_index = 0
+24/name = "mine"
+24/texture = ExtResource( 15 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 0, 0, 26, 22 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 13, 11 )
+24/navigation_offset = Vector2( 13, 11 )
+24/shapes = [  ]
+24/z_index = 0

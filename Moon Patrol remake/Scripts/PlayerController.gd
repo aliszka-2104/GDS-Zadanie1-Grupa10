@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var jumping = false
-var shooted=false
 var horBullet
 const BULLET = preload("res://Scenes/Prefabs/Bullet.tscn")
 const HORIZONTAL_BULLET = preload("res://Scenes/Prefabs/HorizontalBullet.tscn")
@@ -29,6 +28,8 @@ func get_input():
 		_shoot()
 
 func _physics_process(delta):
+	if !Global.game_started:
+		return
 	get_input()
 	velocity.y += Global.gravity * delta
 	if jumping and is_on_floor():
@@ -37,20 +38,30 @@ func _physics_process(delta):
 	
 func _shoot():
 	var bullet = BULLET.instance()
-	bullet.position=$VerticalBulletPosition2D.global_position
-	get_parent().add_child(bullet)
+	bullet.position=$VerticalBulletPosition2D.position
+	self.add_child(bullet)
 	
 	if bullets.get_child_count()>0:
 		return
 	horBullet = HORIZONTAL_BULLET.instance()
 	horBullet.position=$HorizontalBulletPosition2D.global_position
 	bullets.add_child(horBullet)
-	
-	
 
 func _on_Area2D_area_entered(area):
 	var layer = area.get_collision_layer()
-	if(layer==2):
-		print("dziura")
-	elif(layer==32):
-		print("pprzeszkadzajka")
+	if(layer==2):		#hole
+		pass
+	elif(layer==32):	#obstacle
+		pass
+	elif(layer==16):	#enemy projectile
+		area.queue_free()
+		death()
+
+func death():
+	
+	Global.player_death()
+	
+	
+	
+	
+	

@@ -1,8 +1,5 @@
 extends TileMap
 
-var node_PlaceholderReplacer = preload("res://Scenes/Prefabs/Hole.tscn")
-export var placeholderTileName = "Hole"
-
 func _ready():
 	var tm = self
 	var sizex = tm.get_cell_size().x
