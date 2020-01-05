@@ -2,6 +2,7 @@ extends Node2D
 
 export var hitPoints = 100
 const BULLET = preload("res://Scenes/Prefabs/AlienBullet.tscn")
+const EXPLOSION = preload("res://Scenes/Prefabs/Explosions/AlienExplosion.tscn")
 var timer = Timer.new()
 var alien_bullet_delay = 2
 var canShoot = true
@@ -12,7 +13,7 @@ func _ready():
 	add_child(timer)
 	timer.connect("timeout",self,"_on_timer_timeout")
 	alien_bullet_delay = Global.alienBulletDelayInSeconds
-	player = get_node("/root/Scene/Player")
+	player = get_node("//root/Scene/Player")
 	
 func _physics_process(delta):
 	if !Global.game_started:
@@ -40,7 +41,8 @@ func _shoot():
 func _on_timer_timeout():
 	canShoot=true
 
-func _on_VisibilityNotifier2D_screen_entered():
+func on_scene_entered():
+	print("start")
 	shouldMove = true
 
 
@@ -51,6 +53,9 @@ func _on_Body_area_entered(area):
 		get_hit()
 		
 func get_hit():
+#	var explosion = EXPLOSION.instance()
+#	explosion.global_position=global_position
+#	get_tree().root.add_child(explosion)
 	Global.addPoints(hitPoints)
-	Global.drawExplosion(position)
+	Global.drawExplosion(EXPLOSION,global_position)
 	queue_free()

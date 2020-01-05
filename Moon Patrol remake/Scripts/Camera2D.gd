@@ -4,11 +4,14 @@ extends Camera2D
 # var a = 2
 # var b = "text"
 var player
-var offsetPosition
+var offset_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("../Player")
-	offsetPosition= position.x-player.position.x
+	offset_position= position.x-player.position.x
 
 func _physics_process(delta):
-	position.x = player.position.x+offsetPosition
+	var relative_speed = Global.current_speed-Global.min_speed
+	var speed_change = relative_speed/Global.speed_amplitude
+	var speed_offset = get_viewport().size.x/2*speed_change
+	position.x = player.position.x+offset_position

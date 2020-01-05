@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/animations/bulletExplosive/bulletAnimation1_512.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/animations/bulletExplosive/bulletAnimation2,1_512.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/animations/bulletExplosive/bulletAnimation3,1_512.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Explosion.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Explosion" type="AnimatedSprite"]
+frames = SubResource( 1 )
+playing = true
+script = ExtResource( 4 )
+[connection signal="animation_finished" from="." to="." method="_on_Explosion_animation_finished"]

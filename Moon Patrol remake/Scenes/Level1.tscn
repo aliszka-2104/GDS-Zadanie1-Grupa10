@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://TileSets/Backgrounds.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/TilePlaceholderReplacement.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Prefabs/Level design/Mine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Prefabs/Level design/Obstacles/Rock1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien formation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien_Plate.tscn" type="PackedScene" id=6]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="TileMap" parent="Background"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1024, 1024 )
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 2, 5, 0, 4, 6, 0 )
+
+[node name="Mountains" type="TileMap" parent="Background"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1024, 1024 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0 )
+
+[node name="Windrocks" type="TileMap" parent="Background"]
+position = Vector2( 0, 512 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1024, 1024 )
+format = 1
+tile_data = PoolIntArray( 0, 12, 0, 1, 11, 0, 2, 10, 0, 3, 10, 0 )
+
+[node name="Ground" type="TileMap" parent="Background"]
+position = Vector2( 0, 512 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1024, 1024 )
+collision_layer = 64
+collision_mask = 17
+format = 1
+tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0 )
+script = ExtResource( 2 )
+
+[node name="Obstacles" type="Node2D" parent="."]
+position = Vector2( 0, 1250 )
+
+[node name="Mine" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 3674, 0 )
+
+[node name="Mine2" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 3186, 0 )
+
+[node name="Rock" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 5339, -28 )
+
+[node name="Alien formation" parent="." instance=ExtResource( 5 )]
+position = Vector2( 8974, -238 )
+
+[node name="Alien" parent="Alien formation" instance=ExtResource( 6 )]
+position = Vector2( 590, 233 )

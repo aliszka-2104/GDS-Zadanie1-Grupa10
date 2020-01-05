@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Rock.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/obstacles/rocks/rockDestr3_400.png" type="Texture" id=2]
+
+[node name="Rock" type="Area2D"]
+collision_layer = 32
+collision_mask = 9
+script = ExtResource( 1 )
+hitPoints = 0
+jumpOverPoints = 50
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -500 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 50, -71.8, 50, -69.8, 60, -59.8, 60, -56.5, 68, -41.5, 68, -36.2, 45.9, -11, 42.8, -11, 31.8, -1, 25, -1, -7, 0, -7, -1.7, -23, -8.7, -23, -11.3, -28, -17.3, -28, -32, -26, -32, -19, -41, -16.7, -41, 9, -60, 9, -60.8, 21, -72.8, 21, -75.3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+[connection signal="area_entered" from="." to="." method="_on_Rock_area_entered"]

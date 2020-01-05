@@ -5,6 +5,8 @@ export (int)var jumpOverPoints =80
 onready var raycast = $RayCast2D
 var canBeJumpedOver = true
 
+const EXPLOSION = preload("res://Scenes/Prefabs/Explosions/BulletExplosion.tscn")
+
 func _physics_process(delta):
 	if raycast!=null and canBeJumpedOver and raycast.is_colliding():
 		canBeJumpedOver = false
@@ -21,6 +23,6 @@ func _on_Rock_area_entered(area):
 		
 func get_hit():
 	print("ała")
-	Global.drawExplosion(position)
+	Global.drawExplosion(EXPLOSION,global_position)
 	Global.addPoints(hitPoints)
 	queue_free()

@@ -6,12 +6,15 @@ var horBullet
 const BULLET = preload("res://Scenes/Prefabs/Bullet.tscn")
 const HORIZONTAL_BULLET = preload("res://Scenes/Prefabs/HorizontalBullet.tscn")
 var bullets
+var speedUp = false
+var slowDown=false
 
 func _ready():
 	bullets = get_parent().get_node("HorizontalBullets")
+	velocity.x=Global.base_speed
 
 func get_input():
-	velocity.x = Global.base_speed
+	
 	var speed_up = Input.is_action_pressed('ui_right')
 	var slow_down = Input.is_action_pressed('ui_left')
 	var jump = Input.is_action_just_pressed('ui_up')
@@ -21,25 +24,35 @@ func get_input():
 		jumping = true
 		velocity.y = -Global.jump_speed
 	if speed_up:
-		velocity.x += Global.speed_up_value
+		speed_up()
 	if slow_down:
-		velocity.x -= Global.slow_down_value
+		slow_down()
 	if shoot:
 		_shoot()
+
+func speed_up():
+	velocity.x += Global.speed_change_step
+	velocity.x=clamp(velocity.x,Global.min_speed,Global.max_speed)
+
+func slow_down():
+	velocity.x -= Global.speed_change_step
+	velocity.x=clamp(velocity.x,Global.min_speed,Global.max_speed)
 
 func _physics_process(delta):
 	if !Global.game_started:
 		return
 	get_input()
+#
 	velocity.y += Global.gravity * delta
+	Global.current_speed=velocity.x
 	if jumping and is_on_floor():
 		jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
 func _shoot():
 	var bullet = BULLET.instance()
-	bullet.position=$VerticalBulletPosition2D.position
-	self.add_child(bullet)
+	bullet.position=$VerticalBulletPosition2D.global_position
+	get_parent().add_child(bullet)
 	
 	if bullets.get_child_count()>0:
 		return

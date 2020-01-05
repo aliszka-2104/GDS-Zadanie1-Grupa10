@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Hole.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/obstacles/holes/holeSmall1024.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 41.3581, 21.6242 )
+
+[node name="Hole" type="Area2D"]
+collision_layer = 2
+script = ExtResource( 1 )
+jumpOverPoints = 50
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 27.895, -170.16 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -6.16431, -5.5076 )
+scale = Vector2( 4.5198, 2.24 )
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -5.3905, -7.0546 )
+scale = Vector2( 1, 2.4 )
+enabled = true
+cast_to = Vector2( 0, -150 )
+[connection signal="area_entered" from="." to="." method="_on_Hole_area_entered"]

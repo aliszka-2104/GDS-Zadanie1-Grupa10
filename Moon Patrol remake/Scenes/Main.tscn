@@ -1,18 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/BackgroundController.gd" type="Script" id=1]
 [ext_resource path="res://TerrainTileSet.tres" type="TileSet" id=2]
-[ext_resource path="res://Sprites/Terrain/background1_1024.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Terrain/background2_1024.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/_toberemoved_Prototype/Terrain/background1_1024.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/_toberemoved_Prototype/Terrain/background2_1024.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/TilePlaceholderReplacement.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Level1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=8]
 
 [node name="Scene" type="Node2D"]
 
 [node name="Terrain" type="Node2D" parent="."]
 
 [node name="LevelDesign" type="Node2D" parent="Terrain"]
+editor/display_folded = true
+visible = false
 script = ExtResource( 1 )
 visibilityNotifierPath = NodePath("../../../Scene/Background/BG1/VisibilityNotifier2D")
 
@@ -24,7 +27,6 @@ format = 1
 tile_data = PoolIntArray( 0, 1610612736, 0, 4, 1610612736, 0, 8, 1610612736, 0, 12, 1610612736, 0, 262144, 0, 0, 262148, 0, 0, 262152, 0, 0, 262156, 0, 0 )
 
 [node name="Backgrounds" type="Node2D" parent="Terrain/LevelDesign"]
-editor/display_folded = true
 
 [node name="background1_1024" type="Sprite" parent="Terrain/LevelDesign/Backgrounds"]
 position = Vector2( 0, -256 )
@@ -74,12 +76,17 @@ script = ExtResource( 5 )
 cell_size = Vector2( 1024, 1024 )
 format = 1
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -341, 120 )
+[node name="Level1" parent="Terrain" instance=ExtResource( 6 )]
+position = Vector2( -512, 256 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( -249, 1280 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 768, 842 )
 current = true
-script = ExtResource( 7 )
+zoom = Vector2( 2.5, 2.5 )
+script = ExtResource( 8 )
 
 [node name="HorizontalBullets" type="Node2D" parent="."]
 [connection signal="screen_exited" from="Terrain/LevelDesign/VisibilityNotifier2D" to="Terrain/LevelDesign" method="_on_VisibilityNotifier2D_screen_exited"]
