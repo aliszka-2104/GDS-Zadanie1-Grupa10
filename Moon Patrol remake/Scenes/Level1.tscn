@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://TileSets/Backgrounds.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/TilePlaceholderReplacement.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Prefabs/Level design/Obstacles/Rock1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Prefabs/Level design/Alien formation.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Prefabs/Level design/Alien_Plate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Prefabs/Level design/Checkpoint.tscn" type="PackedScene" id=7]
 
 [node name="Level1" type="Node2D"]
 
@@ -57,3 +58,8 @@ position = Vector2( 8974, -238 )
 
 [node name="Alien" parent="Alien formation" instance=ExtResource( 6 )]
 position = Vector2( 590, 233 )
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 1301, 734 )
