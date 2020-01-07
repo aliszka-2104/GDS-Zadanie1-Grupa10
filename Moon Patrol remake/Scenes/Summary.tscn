@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Summary.gd" type="Script" id=1]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=2]
+
+[node name="Summary" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -640.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
+margin_right = 1024.0
+margin_bottom = 640.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+margin_right = 1024.0
+margin_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 640.0
+
+[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+text = "TIME TO REACH POINT"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 1024.0
+margin_bottom = 164.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+editor/display_folded = true
+margin_right = 1024.0
+margin_bottom = 122.0
+
+[node name="Labels" type="VBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_right = 210.0
+margin_bottom = 122.0
+
+[node name="Your time" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Labels"]
+margin_right = 210.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+text = "YOUR TIME"
+
+[node name="Average time" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Labels"]
+margin_top = 42.0
+margin_right = 210.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 2 )
+text = "AVERAGE TIME"
+
+[node name="Top record" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Labels"]
+margin_top = 84.0
+margin_right = 210.0
+margin_bottom = 122.0
+custom_fonts/font = ExtResource( 2 )
+text = "TOP RECORD"
+
+[node name="Colons" type="VBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 214.0
+margin_right = 963.0
+margin_bottom = 122.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Your time" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Colons"]
+margin_right = 749.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+text = ":"
+
+[node name="Average time" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Colons"]
+margin_top = 42.0
+margin_right = 749.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 2 )
+text = ":"
+
+[node name="Top record" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Colons"]
+margin_top = 84.0
+margin_right = 749.0
+margin_bottom = 122.0
+custom_fonts/font = ExtResource( 2 )
+text = ":"
+
+[node name="Time" type="VBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 967.0
+margin_right = 1024.0
+margin_bottom = 122.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Your time" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Time"]
+margin_right = 57.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+text = "000"
+
+[node name="Average time" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Time"]
+margin_top = 42.0
+margin_right = 57.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 2 )
+text = "000"
+
+[node name="Top record" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Time"]
+margin_top = 84.0
+margin_right = 57.0
+margin_bottom = 122.0
+custom_fonts/font = ExtResource( 2 )
+text = "000"
+
+[node name="Bonus label" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+margin_top = 168.0
+margin_right = 1024.0
+margin_bottom = 206.0
+custom_fonts/font = ExtResource( 2 )
+text = "BONUS POINTS: "
+align = 1

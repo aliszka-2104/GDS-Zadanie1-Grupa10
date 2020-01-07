@@ -39,7 +39,9 @@ func slow_down():
 	velocity.x=clamp(velocity.x,Global.min_speed,Global.max_speed)
 
 func _physics_process(delta):
-	if !Global.game_started:
+	if !Global.game_started or !Global.can_move:
+		velocity.x=Global.base_speed
+		velocity.y=0
 		return
 	get_input()
 #

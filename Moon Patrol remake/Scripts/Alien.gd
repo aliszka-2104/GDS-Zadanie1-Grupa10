@@ -2,12 +2,20 @@ extends Node2D
 
 export var hitPoints = 100
 const BULLET = preload("res://Scenes/Prefabs/AlienBullet.tscn")
+const EXPLODING_BULLET = preload("res://Scenes/Prefabs/AlienExplodingBullet.tscn")
 const EXPLOSION = preload("res://Scenes/Prefabs/Explosions/AlienExplosion.tscn")
 var timer = Timer.new()
 var alien_bullet_delay = 2
 var canShoot = true
 var shouldMove = false
 var player
+
+enum EnemyType{
+	PLATE,
+	CUROSANT,
+	MULTIPLA
+}
+export (EnemyType)var enemy_type
 
 func _ready():
 	add_child(timer)
@@ -20,7 +28,8 @@ func _physics_process(delta):
 		return
 	_shoot()
 	if shouldMove and player!=null:
-		_move()
+		pass
+#		_move()
 
 func _move():
 	global_position.x = player.global_position.x
@@ -32,7 +41,11 @@ func _shoot():
 	if !canShoot:
 		 return
 	
-	var bullet = BULLET.instance()
+	var bullet
+	if enemy_type==EnemyType.MULTIPLA:
+		bullet=EXPLODING_BULLET.instance()
+	else:
+		bullet = BULLET.instance()
 	bullet.position=$Body/Position2D.global_position
 	get_tree().root.add_child(bullet)
 	canShoot=false

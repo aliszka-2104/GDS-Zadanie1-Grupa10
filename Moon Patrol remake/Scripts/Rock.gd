@@ -22,7 +22,6 @@ func _on_Rock_area_entered(area):
 		get_hit()
 		
 func get_hit():
-	print("ała")
 	Global.drawExplosion(EXPLOSION,global_position)
 	Global.addPoints(hitPoints)
 	queue_free()

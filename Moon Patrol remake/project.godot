@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Checkpoint",
+"language": "GDScript",
+"path": "res://Scripts/Checkpoint.gd"
+} ]
 _global_script_class_icons={
-
+"Checkpoint": ""
 }
 
 [application]
@@ -35,6 +40,8 @@ window/stretch/aspect="keep"
 2d_physics/layer_4="Projectile"
 2d_physics/layer_5="Enemy projectile"
 2d_physics/layer_6="Obstacle"
+2d_physics/layer_7="Ground"
+2d_physics/layer_8="Checkpoint"
 
 [rendering]
 

@@ -14,4 +14,3 @@ func _on_Hole_area_entered(area):
 	if(layer==1):
 		canBeJumpedOver = false
 		Global.player_death()
-		

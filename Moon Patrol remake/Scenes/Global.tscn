@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Global.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Summary.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Font100.tres" type="DynamicFont" id=4]
 
 [node name="Global" type="Node2D"]
 script = ExtResource( 1 )
@@ -9,5 +11,24 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 2 )]
+rect_scale = Vector2( 1.28, 1.28 )
+
+[node name="Summary" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Game over" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -50.0
+margin_right = 300.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 4 )
+text = "GAME OVER"
+[connection signal="checkpoint_changed" from="." to="CanvasLayer/HUD" method="_on_Global_checkpoint_changed"]
+[connection signal="draw_summary" from="." to="CanvasLayer/Summary" method="_on_Global_draw_summary"]
 [connection signal="lives_changed" from="." to="CanvasLayer/HUD" method="_on_Global_lives_changed"]
 [connection signal="score_changed" from="." to="CanvasLayer/HUD" method="_on_Global_score_changed"]

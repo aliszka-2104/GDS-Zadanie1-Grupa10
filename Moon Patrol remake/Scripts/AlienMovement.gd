@@ -13,6 +13,8 @@ func _ready():
 	positionRight = get_parent().get_node("PositionRight")
 	
 func _physics_process(delta):
+	if !Global.game_started:
+		return
 	if movingLeft and abs(position.x-positionLeft.position.x)<distance:
 		movingLeft = false
 	elif !movingLeft and abs(position.x-positionRight.position.x)<distance:
