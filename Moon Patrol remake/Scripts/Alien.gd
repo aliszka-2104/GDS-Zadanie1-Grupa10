@@ -6,9 +6,10 @@ const EXPLODING_BULLET = preload("res://Scenes/Prefabs/AlienExplodingBullet.tscn
 const EXPLOSION = preload("res://Scenes/Prefabs/Explosions/AlienExplosion.tscn")
 var timer = Timer.new()
 var alien_bullet_delay = 2
-var canShoot = true
+var canShoot = false
 var shouldMove = false
 var player
+var initial_position=Vector2()
 
 enum EnemyType{
 	PLATE,
@@ -18,25 +19,18 @@ enum EnemyType{
 export (EnemyType)var enemy_type
 
 func _ready():
+	Global.connect("reload",self,"on_level_reload")
 	add_child(timer)
 	timer.connect("timeout",self,"_on_timer_timeout")
 	alien_bullet_delay = Global.alienBulletDelayInSeconds
 	player = get_node("//root/Scene/Player")
+	initial_position=position
 	
 func _physics_process(delta):
 	if !Global.game_started:
 		return
 	_shoot()
-	if shouldMove and player!=null:
-		pass
-#		_move()
-
-func _move():
-	global_position.x = player.global_position.x
 	
-#	var distance = global_position.x - player.global_position.x
-#	global_position.x = player.global_position.x+distance
-
 func _shoot():
 	if !canShoot:
 		 return
@@ -57,6 +51,7 @@ func _on_timer_timeout():
 func on_scene_entered():
 	print("start")
 	shouldMove = true
+	canShoot=true
 
 
 func _on_Body_area_entered(area):
@@ -72,3 +67,6 @@ func get_hit():
 	Global.addPoints(hitPoints)
 	Global.drawExplosion(EXPLOSION,global_position)
 	queue_free()
+	
+func on_level_reload():
+	position=initial_position

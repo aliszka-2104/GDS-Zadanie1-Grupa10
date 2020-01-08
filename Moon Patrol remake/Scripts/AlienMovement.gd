@@ -1,27 +1,44 @@
 extends Area2D
 
-export var distance = 1
-export var speed = 1
+export var distance = 10
+export var speed = .1
 
 var positionLeft
 var positionRight
 
 var movingLeft = true
+var moving = false
+var t=0
+var newpos
 
 func _ready():
 	positionLeft = get_parent().get_node("PositionLeft")
 	positionRight = get_parent().get_node("PositionRight")
+	newpos=position
+	
 	
 func _physics_process(delta):
-	if !Global.game_started:
-		return
-	if movingLeft and abs(position.x-positionLeft.position.x)<distance:
-		movingLeft = false
-	elif !movingLeft and abs(position.x-positionRight.position.x)<distance:
-		movingLeft = true
+#	if !Global.game_started or !get_parent().shouldMove:
+#		return
+		
+	if abs(position.x-newpos.x)<distance:
+		var pos = rand_range(-5,5)*100
+		newpos = Vector2(pos,position.y)
+		t=0
 	
-	if movingLeft:
-		position=position.linear_interpolate(positionLeft.position,delta*speed)
-	else:
-		position=position.linear_interpolate(positionRight.position,delta*speed)
-	
+	_move(delta,newpos)
+		
+#	if movingLeft and abs(position.x-positionLeft.position.x)<distance:
+#		movingLeft = false
+#	elif !movingLeft and abs(position.x-positionRight.position.x)<distance:
+#		movingLeft = true
+#
+#	if movingLeft:
+#		position=position.linear_interpolate(positionLeft.position,delta*speed)
+#	else:
+#		position=position.linear_interpolate(positionRight.position,delta*speed)
+
+func _move(delta,newpos):
+	t+=delta*speed
+#	translate(newpos)
+	position = position.linear_interpolate(newpos,t)

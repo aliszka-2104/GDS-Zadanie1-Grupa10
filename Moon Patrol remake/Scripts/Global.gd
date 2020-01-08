@@ -12,6 +12,8 @@ const slow_down_value = 500
 const jump_speed = 500
 const gravity = 1000
 
+const camera_speed=10
+
 const max_speed = base_speed+speed_up_value
 const min_speed = base_speed-slow_down_value
 const speed_amplitude = max_speed-min_speed
@@ -29,6 +31,7 @@ signal score_changed
 signal lives_changed
 signal checkpoint_changed
 signal draw_summary
+signal reload
 var reload_game_timer = Timer.new()
 var summary_timer = Timer.new()
 var game_timer = 0
@@ -45,6 +48,7 @@ var placeholdersDictionary = {}
 
 
 func _ready():
+	randomize()
 ##	placeholdersDictionary["hole"] = preload("res://Scenes/Prefabs/Hole.tscn")
 ##	placeholdersDictionary["hole1"] = preload("res://Scenes/Prefabs/Hole1.tscn")
 #	placeholdersDictionary["rock1"] = preload("res://Scenes/Prefabs/Rock1.tscn")
@@ -55,14 +59,16 @@ func _ready():
 	placeholdersDictionary["ground1024"] = preload("res://Scenes/Prefabs/Ground.tscn")
 	placeholdersDictionary["ground1_1024"] = preload("res://Scenes/Prefabs/Ground2.tscn")
 	player = get_node("/root/Scene/Player")
-	current_checkpoint_position=player.global_position.x
+	if(player):
+		current_checkpoint_position=player.global_position.x
 	add_child(reload_game_timer)
 	add_child(summary_timer)
 	reload_game_timer.connect("timeout",self,"reload_game")
 	summary_timer.connect("timeout",self,"hide_summary")
 	emit_signal("score_changed")
 	emit_signal("lives_changed")
-	player_start_pos.y=player.global_position.y
+	if(player):
+		player_start_pos.y=player.global_position.y
 	
 
 func _physics_process(delta):
@@ -93,6 +99,7 @@ func reload_checkpoint():
 	player.position=player_start_pos
 	for child in get_node("/root/Scene/Temporary holes").get_children():
 		child.queue_free()
+	emit_signal("reload")
 	pass
 	
 func game_over():

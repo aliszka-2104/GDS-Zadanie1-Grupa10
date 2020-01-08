@@ -20,6 +20,8 @@ func _ready():
 	match bulletType:
 		BulletType.ENEMY:
 			velocity.y = Global.alienBulletSpeed
+			randomize()
+			velocity.x=rand_range(1,3)*1000
 		BulletType.EXPLODING:
 			velocity.y = Global.alienBulletSpeed
 		BulletType.HORIZONTAL:
