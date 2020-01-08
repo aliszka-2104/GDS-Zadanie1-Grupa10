@@ -1,35 +1,40 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TileSets/Backgrounds.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/TilePlaceholderReplacement.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Prefabs/Level design/Mine.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Prefabs/Level design/Obstacles/Rock1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Prefabs/Level design/Alien formation.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Prefabs/Level design/Alien_Plate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Prefabs/Level design/Obstacles/Hole1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Prefabs/Level design/Obstacles/Rock2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Prefabs/Level design/Obstacles/Hole.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Prefabs/Level design/Mine.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Prefabs/Level design/Checkpoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien formation.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien_Curosant.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien_Plate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien_Multipla.tscn" type="PackedScene" id=11]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Sky" type="TileMap" parent="Background"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 1024, 1024 )
 format = 1
-tile_data = PoolIntArray( 0, 5, 0, 2, 5, 0, 4, 6, 0 )
+tile_data = PoolIntArray( 0, 5, 0, 2, 5, 0, 4, 5, 0, 6, 5, 0, 8, 5, 0, 9, 5, 0, 11, 5, 0, 13, 5, 0, 15, 5, 0, 17, 5, 0, 19, 5, 0, 20, 5, 0, 22, 5, 0, 24, 5, 0, 26, 5, 0, 28, 5, 0, 30, 5, 0, 32, 5, 0, 34, 5, 0, 36, 5, 0, 38, 5, 0, 40, 5, 0, 42, 5, 0, 44, 5, 0, 46, 5, 0, 48, 5, 0, 50, 5, 0, 52, 5, 0, 54, 5, 0, 56, 5, 0, 58, 5, 0, 60, 5, 0, 62, 5, 0, 64, 5, 0, 66, 5, 0, 68, 5, 0, 69, 5, 0, 71, 5, 0, 73, 5, 0, 75, 5, 0, 77, 5, 0, 79, 5, 0, 81, 5, 0, 83, 5, 0, 85, 5, 0, 86, 5, 0, 88, 5, 0, 90, 5, 0, 92, 5, 0, 94, 5, 0, 96, 5, 0, 98, 5, 0, 100, 5, 0, 102, 5, 0, 104, 5, 0, 106, 5, 0, 108, 5, 0, 110, 5, 0, 112, 5, 0, 114, 5, 0, 116, 5, 0, 118, 5, 0, 120, 5, 0, 122, 5, 0, 124, 5, 0, 126, 5, 0, 128, 5, 0, 130, 5, 0, 132, 5, 0, 134, 5, 0, 135, 5, 0, 137, 5, 0, 139, 5, 0, 141, 5, 0, 143, 5, 0, 145, 5, 0, 147, 5, 0, 149, 5, 0, 151, 5, 0, 153, 5, 0, 155, 5, 0, 157, 5, 0, 159, 5, 0, 160, 5, 0, 162, 5, 0, 164, 5, 0, 166, 5, 0, 168, 5, 0, 170, 5, 0, 172, 5, 0, 174, 5, 0 )
 
 [node name="Mountains" type="TileMap" parent="Background"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 1024, 1024 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 1, 0, 5, 0, 0, 6, 2, 0, 7, 2, 0, 8, 0, 0, 9, 1, 0, 10, 2, 0, 11, 0, 0, 12, 1, 0, 13, 2, 0, 14, 0, 0, 15, 1, 0, 16, 2, 0, 17, 0, 0, 18, 1, 0, 19, 1, 0, 20, 0, 0, 21, 2, 0, 22, 0, 0, 23, 0, 0, 24, 1, 0, 25, 1, 0, 26, 2, 0, 27, 2, 0, 28, 1, 0, 29, 0, 0, 30, 1, 0, 31, 2, 0, 32, 0, 0, 33, 2, 0, 34, 0, 0, 35, 1, 0, 36, 2, 0, 37, 0, 0, 38, 2, 0, 39, 0, 0, 40, 1, 0, 41, 0, 0, 42, 2, 0, 43, 0, 0, 44, 1, 0, 45, 0, 0, 46, 2, 0, 47, 0, 0, 48, 0, 0, 49, 1, 0, 50, 0, 0, 51, 2, 0, 52, 2, 0, 53, 1, 0, 54, 0, 0, 55, 2, 0, 56, 1, 0, 57, 2, 0, 58, 0, 0, 59, 1, 0, 60, 0, 0, 61, 2, 0, 62, 2, 0, 63, 0, 0, 64, 1, 0, 65, 0, 0, 66, 0, 0, 67, 2, 0, 68, 2, 0, 69, 0, 0, 70, 1, 0, 71, 2, 0, 72, 0, 0, 73, 2, 0, 74, 0, 0, 75, 2, 0, 76, 1, 0, 77, 2, 0, 78, 0, 0, 79, 2, 0, 80, 1, 0, 81, 0, 0, 82, 1, 0, 83, 2, 0, 84, 0, 0, 85, 2, 0, 86, 1, 0, 87, 1, 0, 88, 2, 0, 89, 0, 0, 90, 2, 0, 91, 1, 0, 92, 2, 0, 93, 0, 0, 94, 1, 0, 95, 2, 0, 96, 2, 0, 97, 2, 0, 98, 1, 0, 99, 0, 0, 100, 0, 0, 101, 1, 0, 102, 2, 0, 103, 2, 0, 104, 0, 0, 105, 0, 0, 106, 1, 0, 107, 2, 0, 108, 0, 0, 109, 2, 0, 110, 0, 0, 111, 0, 0, 112, 0, 0, 113, 1, 0, 114, 2, 0, 115, 0, 0, 116, 1, 0, 117, 2, 0, 118, 2, 0, 119, 2, 0, 120, 1, 0, 121, 2, 0, 122, 0, 0, 123, 0, 0, 124, 0, 0, 125, 0, 0, 126, 1, 0, 127, 2, 0, 128, 1, 0, 129, 2, 0, 130, 0, 0, 131, 1, 0, 132, 2, 0, 133, 2, 0, 134, 2, 0, 135, 1, 0, 136, 0, 0, 137, 2, 0, 138, 2, 0, 139, 0, 0, 140, 2, 0, 141, 1, 0, 142, 1, 0, 143, 0, 0, 144, 0, 0, 145, 0, 0, 146, 1, 0, 147, 0, 0, 148, 1, 0, 149, 1, 0, 150, 2, 0, 151, 0, 0, 152, 0, 0, 153, 0, 0, 154, 0, 0, 155, 1, 0, 156, 2, 0, 157, 2, 0, 158, 2, 0, 159, 2, 0, 160, 1, 0, 161, 1, 0, 162, 1, 0, 163, 1, 0, 164, 1, 0, 165, 2, 0, 166, 0, 0, 167, 2, 0, 168, 1, 0, 169, 0, 0, 170, 2, 0, 171, 1, 0, 172, 1, 0, 173, 0, 0, 174, 0, 0, 175, 1, 0 )
 
 [node name="Windrocks" type="TileMap" parent="Background"]
 position = Vector2( 0, 512 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 1024, 1024 )
 format = 1
-tile_data = PoolIntArray( 0, 12, 0, 1, 11, 0, 2, 10, 0, 3, 10, 0 )
+tile_data = PoolIntArray( 0, 12, 0, 1, 11, 0, 2, 10, 0, 3, 10, 0, 4, 8, 0, 5, 9, 0, 6, 10, 0, 7, 11, 0, 8, 12, 0, 9, 13, 0, 10, 14, 0, 11, 9, 0, 12, 10, 0, 13, 11, 0, 14, 12, 0, 15, 13, 0, 16, 8, 0, 17, 9, 0, 18, 8, 0, 19, 10, 0, 20, 11, 0, 21, 12, 0, 22, 10, 0, 23, 9, 0, 24, 10, 0, 25, 13, 0, 26, 13, 0, 27, 13, 0, 28, 13, 0, 29, 13, 0, 30, 11, 0, 31, 11, 0, 32, 14, 0, 33, 9, 0, 34, 10, 0, 35, 9, 0, 36, 13, 0, 37, 11, 0, 38, 9, 0, 39, 11, 0, 40, 14, 0, 41, 9, 0, 42, 11, 0, 43, 14, 0, 44, 11, 0, 45, 10, 0, 46, 9, 0, 47, 11, 0, 48, 12, 0, 49, 10, 0, 50, 11, 0, 51, 13, 0, 52, 12, 0, 53, 10, 0, 54, 11, 0, 55, 10, 0, 56, 13, 0, 57, 14, 0, 58, 10, 0, 59, 14, 0, 60, 12, 0, 61, 11, 0, 62, 14, 0, 63, 10, 0, 64, 12, 0, 65, 11, 0, 66, 10, 0, 67, 10, 0, 68, 13, 0, 69, 12, 0, 70, 10, 0, 71, 14, 0, 72, 10, 0, 73, 11, 0, 74, 12, 0, 75, 10, 0, 76, 13, 0, 77, 11, 0, 78, 10, 0, 79, 13, 0, 80, 11, 0, 81, 14, 0, 82, 14, 0, 83, 11, 0, 84, 13, 0, 85, 11, 0, 86, 13, 0, 87, 8, 0, 88, 9, 0, 89, 11, 0, 90, 13, 0, 91, 11, 0, 92, 8, 0, 93, 13, 0, 94, 13, 0, 95, 11, 0, 96, 9, 0, 97, 9, 0, 98, 13, 0, 99, 13, 0, 100, 8, 0, 101, 11, 0, 102, 9, 0, 103, 13, 0, 104, 11, 0, 105, 9, 0, 106, 13, 0, 107, 8, 0, 108, 11, 0, 109, 9, 0, 110, 13, 0, 111, 13, 0, 112, 8, 0, 113, 11, 0, 114, 11, 0, 115, 8, 0, 116, 9, 0, 117, 11, 0, 118, 8, 0, 119, 8, 0, 120, 9, 0, 121, 9, 0, 122, 13, 0, 123, 8, 0, 124, 9, 0, 125, 11, 0, 126, 8, 0, 127, 8, 0, 128, 8, 0, 129, 13, 0, 130, 9, 0, 131, 14, 0, 132, 13, 0, 133, 14, 0, 134, 9, 0, 135, 8, 0, 136, 14, 0, 137, 14, 0, 138, 8, 0, 139, 13, 0, 140, 9, 0, 141, 9, 0, 142, 14, 0, 143, 8, 0, 144, 8, 0, 145, 10, 0, 146, 14, 0, 147, 14, 0, 148, 10, 0, 149, 10, 0, 150, 10, 0, 151, 10, 0, 152, 14, 0, 153, 14, 0, 154, 12, 0, 155, 12, 0, 156, 12, 0, 157, 13, 0, 158, 14, 0, 159, 14, 0, 160, 13, 0, 161, 14, 0, 162, 14, 0, 163, 13, 0, 164, 14, 0, 165, 14, 0, 166, 14, 0, 167, 8, 0, 168, 13, 0, 169, 13, 0, 170, 11, 0, 171, 11, 0, 172, 14, 0, 173, 14, 0, 174, 13, 0, 175, 13, 0 )
 
 [node name="Ground" type="TileMap" parent="Background"]
 position = Vector2( 0, 512 )
@@ -38,28 +43,505 @@ cell_size = Vector2( 1024, 1024 )
 collision_layer = 64
 collision_mask = 17
 format = 1
-tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0 )
+tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 3, 0, 19, 3, 0, 20, 3, 0, 21, 4, 0, 22, 4, 0, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 3, 0, 30, 3, 0, 31, 3, 0, 32, 3, 0, 33, 3, 0, 34, 3, 0, 35, 3, 0, 36, 3, 0, 37, 3, 0, 38, 3, 0, 39, 3, 0, 40, 3, 0, 41, 3, 0, 42, 3, 0, 43, 3, 0, 44, 3, 0, 45, 3, 0, 46, 3, 0, 47, 3, 0, 48, 4, 0, 49, 4, 0, 50, 4, 0, 51, 4, 0, 52, 4, 0, 53, 4, 0, 54, 4, 0, 55, 4, 0, 56, 4, 0, 57, 4, 0, 58, 4, 0, 59, 4, 0, 60, 4, 0, 61, 4, 0, 62, 4, 0, 63, 4, 0, 64, 4, 0, 65, 4, 0, 66, 4, 0, 67, 4, 0, 68, 4, 0, 69, 4, 0, 70, 4, 0, 71, 4, 0, 72, 4, 0, 73, 4, 0, 74, 4, 0, 75, 4, 0, 76, 4, 0, 77, 4, 0, 78, 4, 0, 79, 4, 0, 80, 4, 0, 81, 4, 0, 82, 4, 0, 83, 4, 0, 84, 4, 0, 85, 4, 0, 86, 4, 0, 87, 4, 0, 88, 4, 0, 89, 4, 0, 90, 4, 0, 91, 4, 0, 92, 4, 0, 93, 4, 0, 94, 4, 0, 95, 4, 0, 96, 4, 0, 97, 4, 0, 98, 4, 0, 99, 4, 0, 100, 4, 0, 101, 4, 0, 102, 4, 0, 103, 4, 0, 104, 4, 0, 105, 4, 0, 106, 4, 0, 107, 4, 0, 108, 4, 0, 109, 4, 0, 110, 4, 0, 111, 4, 0, 112, 4, 0, 113, 4, 0, 114, 4, 0, 115, 4, 0, 116, 4, 0, 117, 4, 0, 118, 4, 0, 119, 4, 0, 120, 4, 0, 121, 4, 0, 122, 4, 0, 123, 4, 0, 124, 4, 0, 125, 4, 0, 126, 4, 0, 127, 4, 0, 128, 4, 0, 129, 4, 0, 130, 4, 0, 131, 4, 0, 132, 4, 0, 133, 4, 0, 134, 4, 0, 135, 4, 0, 136, 4, 0, 137, 4, 0, 138, 4, 0, 139, 4, 0, 140, 4, 0, 141, 4, 0, 142, 4, 0, 143, 4, 0, 144, 4, 0, 145, 4, 0, 146, 4, 0, 147, 4, 0, 148, 4, 0, 149, 4, 0, 150, 4, 0, 151, 4, 0, 152, 4, 0, 153, 4, 0, 154, 4, 0, 155, 4, 0, 156, 4, 0, 157, 4, 0, 158, 4, 0, 159, 4, 0, 160, 4, 0, 161, 4, 0, 162, 4, 0, 163, 4, 0, 164, 4, 0, 165, 4, 0, 166, 4, 0, 167, 4, 0, 168, 4, 0, 169, 4, 0, 170, 4, 0, 171, 4, 0, 172, 4, 0, 173, 4, 0, 174, 4, 0, 175, 4, 0 )
 script = ExtResource( 2 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 position = Vector2( 0, 1250 )
 
-[node name="Mine" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 3674, 0 )
+[node name="Hole" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 6200, 120 )
 
-[node name="Mine2" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 3186, 0 )
+[node name="Hole2" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 8300, 120 )
+
+[node name="Rock2" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 10000, 0 )
+
+[node name="Hole3" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 11500, 120 )
 
 [node name="Rock" parent="Obstacles" instance=ExtResource( 4 )]
-position = Vector2( 5339, -28 )
+position = Vector2( 12800, 0 )
 
-[node name="Alien formation" parent="." instance=ExtResource( 5 )]
-position = Vector2( 8974, -238 )
+[node name="Rock3" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 19500, 0 )
 
-[node name="Alien" parent="Alien formation" instance=ExtResource( 6 )]
-position = Vector2( 590, 233 )
+[node name="Rock4" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 23000, 0 )
+
+[node name="Rock5" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 25500, 0 )
+
+[node name="Hole4" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 27000, 120 )
+
+[node name="Rock6" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 28000, 0 )
+
+[node name="Rock7" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 29000, 0 )
+
+[node name="Hole5" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 31700, 117.391 )
+
+[node name="Hole6" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 33000, 120 )
+
+[node name="Rock8" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 40100, 0 )
+
+[node name="Hole7" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 41750, 120 )
+
+[node name="Hole8" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 50500, 117.391 )
+
+[node name="Rock9" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 51250, 0 )
+
+[node name="Hole9" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 52500, 120 )
+
+[node name="Hole10" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 53700, 0 )
+
+[node name="Rock10" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 54700, 0 )
+
+[node name="Rock11" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 55700, 0 )
+
+[node name="Rock12" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 57000, 0 )
+
+[node name="Rock13" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 57100, 0 )
+
+[node name="Rock14" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 58200, 0 )
+
+[node name="Rock15" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 59200, 0 )
+
+[node name="Hole11" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 61000, 120 )
+
+[node name="Rock16" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 62200, 0 )
+
+[node name="Rock17" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 63500, 0 )
+
+[node name="Hole12" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 65750, 0 )
+
+[node name="Rock18" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 67200, 0 )
+
+[node name="Hole13" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 68700, 0 )
+
+[node name="Rock19" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 70200, 0 )
+
+[node name="Rock20" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 84000, 0 )
+
+[node name="Hole14" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 86300, 0 )
+
+[node name="Rock21" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 88200, 0 )
+
+[node name="Rock22" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 88270, 0 )
+
+[node name="Rock23" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 89500, 0 )
+
+[node name="Rock24" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 90900, 0 )
+
+[node name="Rock25" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 90970, 0 )
+
+[node name="Hole15" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 92300, 0 )
+
+[node name="Mine" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 95800, 0 )
+
+[node name="Mine2" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 96800, 0 )
+
+[node name="Mine3" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 98400, 0 )
+
+[node name="Mine4" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 99500, 0 )
+
+[node name="Mine5" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 101500, 0 )
+
+[node name="Mine6" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 101600, -1.729 )
+
+[node name="Mine7" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 102700, 0 )
+
+[node name="Mine8" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 104000, 0 )
+
+[node name="Mine9" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 105600, 0 )
+
+[node name="Mine10" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 105700, 0 )
+
+[node name="Mine11" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 107100, 0 )
+
+[node name="Mine12" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 108100, 0 )
+
+[node name="Mine13" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 109300, 0 )
+
+[node name="Mine14" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 110300, 0 )
+
+[node name="Mine15" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 110400, 0 )
+
+[node name="Mine16" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 111700, 0 )
+
+[node name="Mine17" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 113210, 0 )
+
+[node name="Mine18" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 114000, 0 )
+
+[node name="Mine19" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 114700, 0 )
+
+[node name="Mine20" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 115900, 0 )
+
+[node name="Mine21" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 117400, 0 )
+
+[node name="Mine22" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 117500, 0 )
+
+[node name="Mine23" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 118900, 0 )
+
+[node name="Mine24" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 120800, 0 )
+
+[node name="Mine25" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 122000, 0 )
+
+[node name="Mine26" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 123100, 0 )
+
+[node name="Mine27" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 123200, 0 )
+
+[node name="Mine28" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 124400, 0 )
+
+[node name="Mine29" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 124500, 0 )
+
+[node name="Mine30" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 125900, 0 )
+
+[node name="Mine31" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 126000, 0 )
+
+[node name="Mine32" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 127400, 0 )
+
+[node name="Mine33" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 129000, 0 )
+
+[node name="Mine34" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 129100, 0 )
+
+[node name="Mine35" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 131000, 0 )
+
+[node name="Mine36" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 131100, 0 )
+
+[node name="Mine37" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 133000, 0 )
+
+[node name="Mine38" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 135000, 0 )
+
+[node name="Mine39" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 136800, 0 )
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
+[node name="CP 1" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 1300, 800 )
+letter = "0"
+
+[node name="CP A" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 13800, 800 )
+
+[node name="CP B" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 21900, 800 )
+letter = "B"
+
+[node name="CP C" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 29670, 800 )
+letter = "C"
+
+[node name="CP D" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 37000, 800 )
+letter = "D"
+
+[node name="CP E" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 42250, 800 )
+letter = "E"
+is_summary = true
+time_to_reach = 80
+
+[node name="CP F" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 51700, 800 )
+letter = "F"
+
+[node name="CP G" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 64000, 800 )
+letter = "G"
+
+[node name="CP H" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 74000, 800 )
+letter = "H"
+
+[node name="CP I" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 80500, 800 )
+
+[node name="CH J" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 92900, 800 )
+letter = "J"
+is_summary = true
+time_to_reach = 80
+
+[node name="CH K" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 107300, 800 )
+letter = "K"
+
+[node name="CH L" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 122500, 800 )
+letter = "L"
+
+[node name="CH M" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 140400, 800 )
+letter = "M"
+
+[node name="CH N" parent="Checkpoints" instance=ExtResource( 7 )]
+position = Vector2( 148900, 800 )
+letter = "N"
+
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 7 )]
-position = Vector2( 1301, 734 )
+position = Vector2( 164100, 800 )
+letter = "O"
+is_summary = true
+time_to_reach = 100
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( 0, -120 )
+
+[node name="AF Point 0" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 13000, -160 )
+
+[node name="Alien2" parent="Enemies/AF Point 0" instance=ExtResource( 9 )]
+position = Vector2( -100, 360 )
+
+[node name="Alien" parent="Enemies/AF Point 0" instance=ExtResource( 9 )]
+position = Vector2( 240, 360 )
+
+[node name="AF PointA1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 16500, -160 )
+
+[node name="Alien" parent="Enemies/AF PointA1" instance=ExtResource( 10 )]
+position = Vector2( 220, 360 )
+
+[node name="Alien2" parent="Enemies/AF PointA1" instance=ExtResource( 10 )]
+position = Vector2( -280, 360 )
+
+[node name="AF PointA2" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 21000, -160 )
+
+[node name="Alien" parent="Enemies/AF PointA2" instance=ExtResource( 9 )]
+position = Vector2( 160, 360 )
+
+[node name="Alien2" parent="Enemies/AF PointA2" instance=ExtResource( 9 )]
+position = Vector2( -240, 360 )
+
+[node name="AF PointC1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 33000, -160 )
+
+[node name="Alien" parent="Enemies/AF PointC1" instance=ExtResource( 10 )]
+position = Vector2( 160, 360 )
+
+[node name="Alien2" parent="Enemies/AF PointC1" instance=ExtResource( 10 )]
+position = Vector2( -240, 345.54 )
+
+[node name="Alien3" parent="Enemies/AF PointC1" instance=ExtResource( 10 )]
+position = Vector2( 525.153, 360 )
+
+[node name="AF PointC2" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 36000, -160 )
+
+[node name="Alien" parent="Enemies/AF PointC2" instance=ExtResource( 11 )]
+position = Vector2( -269.172, 360 )
+
+[node name="Alien" parent="Enemies/AF PointC2/Alien" instance=ExtResource( 11 )]
+position = Vector2( 420.914, 0 )
+
+[node name="AF PointD1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 38500, -160 )
+
+[node name="Alien" parent="Enemies/AF PointD1" instance=ExtResource( 9 )]
+position = Vector2( 151.156, 360 )
+
+[node name="Alien2" parent="Enemies/AF PointD1" instance=ExtResource( 9 )]
+position = Vector2( -264.418, 360 )
+
+[node name="AF PointE1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 44800, -160 )
+
+[node name="Alien" parent="Enemies/AF PointE1" instance=ExtResource( 11 )]
+position = Vector2( 139.613, 360 )
+
+[node name="Alien2" parent="Enemies/AF PointE1" instance=ExtResource( 11 )]
+position = Vector2( -236.031, 360 )
+
+[node name="Alien3" parent="Enemies/AF PointE1" instance=ExtResource( 11 )]
+position = Vector2( -593.867, 360 )
+
+[node name="AF PointE2" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 47500, -160 )
+
+[node name="Alien" parent="Enemies/AF PointE2" instance=ExtResource( 10 )]
+position = Vector2( 197.461, 360 )
+
+[node name="Alien2" parent="Enemies/AF PointE2" instance=ExtResource( 10 )]
+position = Vector2( -95.25, 360 )
+
+[node name="AF PointG1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 69800, -157.391 )
+
+[node name="Alien" parent="Enemies/AF PointG1" instance=ExtResource( 9 )]
+position = Vector2( 259.242, 523.485 )
+
+[node name="Alien2" parent="Enemies/AF PointG1" instance=ExtResource( 9 )]
+position = Vector2( -313.469, 516.747 )
+
+[node name="Alien3" parent="Enemies/AF PointG1" instance=ExtResource( 9 )]
+position = Vector2( -28.2344, 364.022 )
+
+[node name="AF PointG2" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 72500, -160 )
+
+[node name="Alien" parent="Enemies/AF PointG2" instance=ExtResource( 11 )]
+position = Vector2( 174.414, 415.133 )
+
+[node name="Alien2" parent="Enemies/AF PointG2" instance=ExtResource( 11 )]
+position = Vector2( -249.812, 425.174 )
+
+[node name="AF PointH1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 76100, -160 )
+
+[node name="Alien" parent="Enemies/AF PointH1" instance=ExtResource( 9 )]
+position = Vector2( 180.234, 411.926 )
+
+[node name="Alien2" parent="Enemies/AF PointH1" instance=ExtResource( 9 )]
+position = Vector2( -327.164, 408.754 )
+
+[node name="AF PointH2" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 79693.7, -164.162 )
+
+[node name="Alien" parent="Enemies/AF PointH2" instance=ExtResource( 11 )]
+position = Vector2( 164.883, 384.367 )
+
+[node name="Alien2" parent="Enemies/AF PointH2" instance=ExtResource( 11 )]
+position = Vector2( -266.219, 384.258 )
+
+[node name="AF PointL1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 139500, -160 )
+
+[node name="Alien" parent="Enemies/AF PointL1" instance=ExtResource( 9 )]
+position = Vector2( 379.922, 383.703 )
+
+[node name="Alien2" parent="Enemies/AF PointL1" instance=ExtResource( 9 )]
+position = Vector2( -424.406, 455.686 )
+
+[node name="Alien3" parent="Enemies/AF PointL1" instance=ExtResource( 9 )]
+position = Vector2( -45.7031, 346.146 )
+
+[node name="Alien4" parent="Enemies/AF PointL1" instance=ExtResource( 9 )]
+position = Vector2( 145.203, 562.095 )
+
+[node name="AF PointM1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 144000, -160 )
+
+[node name="Alien" parent="Enemies/AF PointM1" instance=ExtResource( 10 )]
+position = Vector2( 226.969, 377.875 )
+
+[node name="Alien2" parent="Enemies/AF PointM1" instance=ExtResource( 10 )]
+position = Vector2( -289.172, 363.129 )
+
+[node name="Alien3" parent="Enemies/AF PointM1" instance=ExtResource( 10 )]
+position = Vector2( -60.5938, 510.594 )
+
+[node name="AF PointM2" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 148200, -160 )
+
+[node name="Alien" parent="Enemies/AF PointM2" instance=ExtResource( 11 )]
+position = Vector2( 115.891, 388.633 )
+
+[node name="Alien2" parent="Enemies/AF PointM2" instance=ExtResource( 11 )]
+position = Vector2( -558.688, 393.593 )
+
+[node name="Alien3" parent="Enemies/AF PointM2" instance=ExtResource( 11 )]
+position = Vector2( -159.391, 537.434 )
+
+[node name="Alien4" parent="Enemies/AF PointM2" instance=ExtResource( 11 )]
+position = Vector2( -717.406, 596.955 )
+
+[node name="AF PointN1" parent="Enemies" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 155218, -232.585 )
+
+[node name="Alien" parent="Enemies/AF PointN1" instance=ExtResource( 10 )]
+position = Vector2( 262.125, 368.024 )
+
+[node name="Alien2" parent="Enemies/AF PointN1" instance=ExtResource( 10 )]
+position = Vector2( -255.781, 377.964 )
+
+[node name="Alien3" parent="Enemies/AF PointN1" instance=ExtResource( 10 )]
+position = Vector2( -11.0156, 531.816 )

@@ -9,7 +9,7 @@
 [node name="Terrain" type="Node2D" parent="."]
 
 [node name="Level1" parent="Terrain" instance=ExtResource( 1 )]
-position = Vector2( -800, 256 )
+position = Vector2( -798.489, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -118, 1281 )
