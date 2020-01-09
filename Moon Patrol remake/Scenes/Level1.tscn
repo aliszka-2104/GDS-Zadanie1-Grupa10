@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://TileSets/Backgrounds.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/TilePlaceholderReplacement.gd" type="Script" id=2]
@@ -11,11 +11,27 @@
 [ext_resource path="res://Scenes/Prefabs/Level design/Alien_Curosant.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Prefabs/Level design/Alien_Plate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Prefabs/Level design/Alien_Multipla.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/background/smallrocks/rock6_1024.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/background/rockets768.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/background/ruins/stone2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/background/smallrocks/rock1_1024.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/background/smallrocks/rock3_1024.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/CompositionRedyToPaste/readyCompo1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/CompositionRedyToPaste/readyCompo.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/CompositionRedyToPaste/readyCompo2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/CompositionRedyToPaste/readyCompo3.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/background/smallrocks/rock2_1024.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/background/smallrocks/rock4_1024.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/background/smallrocks/rock5_1024.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/background/ruins/stone1.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/background/ruins/stone3.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/background/ruins/stone5.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/background/ruins/stone4.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/background/smallrocks/rock7_1024.png" type="Texture" id=28]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Sky" type="TileMap" parent="Background"]
 tile_set = ExtResource( 1 )
@@ -47,7 +63,8 @@ tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 
 script = ExtResource( 2 )
 
 [node name="Obstacles" type="Node2D" parent="."]
-position = Vector2( 0, 1250 )
+editor/display_folded = true
+position = Vector2( 4.71968, 1254.18 )
 
 [node name="Hole" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 6200, 120 )
@@ -287,6 +304,7 @@ position = Vector2( 135000, 0 )
 position = Vector2( 136800, 0 )
 
 [node name="Checkpoints" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="CP 1" parent="Checkpoints" instance=ExtResource( 7 )]
 position = Vector2( 1300, 800 )
@@ -357,6 +375,7 @@ is_summary = true
 time_to_reach = 100
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, -120 )
 
 [node name="AF Point 0" parent="Enemies" instance=ExtResource( 8 )]
@@ -545,3 +564,782 @@ position = Vector2( -255.781, 377.964 )
 
 [node name="Alien3" parent="Enemies/AF PointN1" instance=ExtResource( 10 )]
 position = Vector2( -11.0156, 531.816 )
+
+[node name="rock6_1025" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 2670.73, 1158.77 )
+texture = ExtResource( 12 )
+
+[node name="rockets768" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( -925.04, -464.313 )
+texture = ExtResource( 13 )
+
+[node name="stone2" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 2891.14, -316.442 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1025/stone2"]
+position = Vector2( 434.721, 68.6401 )
+rotation = 0.284972
+scale = Vector2( 0.888969, 0.968042 )
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1025/stone2"]
+position = Vector2( 280.279, 80.0802 )
+rotation = 0.192582
+scale = Vector2( 1.17153, 1.13826 )
+texture = ExtResource( 14 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1025/stone2"]
+editor/display_folded = true
+position = Vector2( 1295.65, 293.501 )
+texture = ExtResource( 15 )
+
+[node name="rock1_1025" type="Sprite" parent="rock6_1025/stone2/rock1_1024"]
+position = Vector2( 148.224, -16.1219 )
+texture = ExtResource( 15 )
+
+[node name="rock3_1024" type="Sprite" parent="rock6_1025/stone2/rock1_1024"]
+position = Vector2( 286.62, 100.334 )
+texture = ExtResource( 16 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 10920.2, -239.841 )
+texture = ExtResource( 17 )
+
+[node name="readyCompo" type="Sprite" parent="rock6_1025/readyCompo1"]
+position = Vector2( -826.874, 49.9297 )
+texture = ExtResource( 18 )
+
+[node name="stone2" type="Sprite" parent="rock6_1025/readyCompo1"]
+position = Vector2( 458.649, 527.848 )
+scale = Vector2( 1.55237, 1.53691 )
+texture = ExtResource( 14 )
+
+[node name="readyCompo" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 11405.8, 389.492 )
+texture = ExtResource( 18 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1025/readyCompo"]
+visible = false
+position = Vector2( 1299.66, -462.01 )
+texture = ExtResource( 17 )
+
+[node name="readyCompo2" type="Sprite" parent="rock6_1025/readyCompo"]
+position = Vector2( 3893.66, -69.7629 )
+texture = ExtResource( 19 )
+
+[node name="readyCompo3" type="Sprite" parent="rock6_1025/readyCompo/readyCompo2"]
+position = Vector2( -243.789, 27.9709 )
+texture = ExtResource( 20 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 18609, -12.1379 )
+texture = ExtResource( 21 )
+
+[node name="rock4_1024" type="Sprite" parent="rock6_1025/rock2_1024"]
+position = Vector2( 67.1094, 10.3247 )
+texture = ExtResource( 22 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1025/rock2_1024"]
+position = Vector2( 24.625, 271.195 )
+texture = ExtResource( 23 )
+
+[node name="stone1" type="Sprite" parent="rock6_1025/rock2_1024"]
+position = Vector2( 1198.54, -256.197 )
+texture = ExtResource( 24 )
+
+[node name="stone3" type="Sprite" parent="rock6_1025/rock2_1024"]
+position = Vector2( 1156.5, -306.654 )
+texture = ExtResource( 25 )
+
+[node name="stone5" type="Sprite" parent="rock6_1025/rock2_1024"]
+position = Vector2( 1732.47, -338.711 )
+rotation = 0.283982
+texture = ExtResource( 26 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1025/rock2_1024"]
+position = Vector2( 239.766, -92.9689 )
+texture = ExtResource( 15 )
+
+[node name="stone1" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 25827.8, -222.387 )
+texture = ExtResource( 24 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1025/stone1"]
+position = Vector2( 364.826, -10.2363 )
+texture = ExtResource( 17 )
+
+[node name="stone2" type="Sprite" parent="rock6_1025/stone1"]
+position = Vector2( 143.084, -170.289 )
+rotation = -0.875148
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1025/stone1"]
+position = Vector2( 1025.54, 533.453 )
+rotation = 0.0730889
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1025/stone1"]
+position = Vector2( 1477.42, 527.733 )
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="stone5" type="Sprite" parent="rock6_1025/stone1"]
+position = Vector2( 1929.3, 584.933 )
+rotation = 0.187613
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1025" type="Sprite" parent="rock6_1025/stone1"]
+position = Vector2( 2327.21, 246.664 )
+scale = Vector2( 1.26936, 1.24503 )
+texture = ExtResource( 12 )
+
+[node name="readyCompo3" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 34978.7, -264.706 )
+texture = ExtResource( 18 )
+
+[node name="stone4" type="Sprite" parent="rock6_1025/readyCompo3"]
+position = Vector2( 790.633, -122.758 )
+texture = ExtResource( 27 )
+
+[node name="stone1" type="Sprite" parent="rock6_1025/readyCompo3"]
+position = Vector2( 751.082, -15.6782 )
+texture = ExtResource( 24 )
+
+[node name="stone2" type="Sprite" parent="rock6_1025/readyCompo3"]
+position = Vector2( 1007.32, -38.9731 )
+texture = ExtResource( 14 )
+
+[node name="readyCompo2" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 42321.8, -222.164 )
+texture = ExtResource( 19 )
+
+[node name="rock1_1025" type="Sprite" parent="rock6_1025/readyCompo2"]
+position = Vector2( -1141.38, 111.788 )
+texture = ExtResource( 15 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1025/readyCompo2"]
+position = Vector2( -1236.25, 153.531 )
+texture = ExtResource( 21 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1025/readyCompo2"]
+position = Vector2( -1095.41, 407.443 )
+texture = ExtResource( 23 )
+
+[node name="stone3" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 45258.8, 205.132 )
+scale = Vector2( 1.46235, 1.44664 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1025/stone3"]
+position = Vector2( 434.721, 68.6401 )
+rotation = 0.284972
+scale = Vector2( 0.888969, 0.968042 )
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1025/stone3"]
+position = Vector2( 280.279, 80.0802 )
+rotation = 0.192582
+scale = Vector2( 1.17153, 1.13826 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1024" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 53252.4, -374.823 )
+texture = ExtResource( 12 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1025/rock6_1024"]
+position = Vector2( 686.402, 349.223 )
+texture = ExtResource( 15 )
+
+[node name="rock7_1024" type="Sprite" parent="rock6_1025/rock6_1024"]
+position = Vector2( 903.16, 361.265 )
+texture = ExtResource( 28 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1025/rock6_1024"]
+editor/display_folded = true
+position = Vector2( -1925.46, 441.764 )
+texture = ExtResource( 21 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1025/rock6_1024/rock2_1024"]
+position = Vector2( -298.664, -77.8967 )
+texture = ExtResource( 15 )
+
+[node name="rock3_1024" type="Sprite" parent="rock6_1025/rock6_1024"]
+position = Vector2( -1978.54, 386.686 )
+texture = ExtResource( 16 )
+
+[node name="rock4_1024" type="Sprite" parent="rock6_1025/rock6_1024"]
+position = Vector2( -1848.83, 395.464 )
+texture = ExtResource( 22 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1025/rock6_1024"]
+position = Vector2( 714.902, 660.529 )
+texture = ExtResource( 23 )
+
+[node name="stone4" type="Sprite" parent="rock6_1025"]
+editor/display_folded = true
+position = Vector2( 57137.9, -197.909 )
+rotation = 0.179078
+texture = ExtResource( 14 )
+
+[node name="stone5" type="Sprite" parent="rock6_1025/stone4"]
+position = Vector2( 344.707, -139.71 )
+texture = ExtResource( 14 )
+
+[node name="stone7" type="Sprite" parent="rock6_1025/stone4"]
+position = Vector2( 941.094, -170.354 )
+scale = Vector2( 1.02181, 1.16757 )
+texture = ExtResource( 14 )
+
+[node name="stone6" type="Sprite" parent="rock6_1025/stone4"]
+position = Vector2( 694.621, -98.126 )
+rotation = 0.28145
+scale = Vector2( 1.03534, 1.04562 )
+texture = ExtResource( 14 )
+
+[node name="stone8" type="Sprite" parent="rock6_1025/stone4"]
+position = Vector2( 703.402, 581.435 )
+rotation = 1.63764e-005
+scale = Vector2( 1.49, 1.49686 )
+texture = ExtResource( 14 )
+
+[node name="stone9" type="Sprite" parent="rock6_1025/stone4"]
+position = Vector2( 1040.32, 377.722 )
+rotation = -0.145082
+scale = Vector2( 1.43853, 1.37926 )
+texture = ExtResource( 14 )
+
+[node name="stone10" type="Sprite" parent="rock6_1025/stone4"]
+position = Vector2( 266.473, 465.341 )
+rotation = -0.179078
+scale = Vector2( 1.27869, 1.24 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1026" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 64447.4, 1157.82 )
+texture = ExtResource( 12 )
+
+[node name="stone2" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 2891.14, -316.442 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1026/stone2"]
+position = Vector2( 434.721, 68.6401 )
+rotation = 0.284972
+scale = Vector2( 0.888969, 0.968042 )
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1026/stone2"]
+position = Vector2( 280.279, 80.0802 )
+rotation = 0.192582
+scale = Vector2( 1.17153, 1.13826 )
+texture = ExtResource( 14 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1026/stone2"]
+editor/display_folded = true
+position = Vector2( 1295.65, 293.501 )
+texture = ExtResource( 15 )
+
+[node name="rock1_1025" type="Sprite" parent="rock6_1026/stone2/rock1_1024"]
+position = Vector2( 148.224, -16.1219 )
+texture = ExtResource( 15 )
+
+[node name="rock3_1024" type="Sprite" parent="rock6_1026/stone2/rock1_1024"]
+position = Vector2( 286.62, 100.334 )
+texture = ExtResource( 16 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 10920.2, -239.841 )
+texture = ExtResource( 17 )
+
+[node name="readyCompo" type="Sprite" parent="rock6_1026/readyCompo1"]
+position = Vector2( -826.874, 49.9297 )
+texture = ExtResource( 18 )
+
+[node name="stone2" type="Sprite" parent="rock6_1026/readyCompo1"]
+position = Vector2( 458.649, 527.848 )
+scale = Vector2( 1.55237, 1.53691 )
+texture = ExtResource( 14 )
+
+[node name="readyCompo" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 11405.8, 389.492 )
+texture = ExtResource( 18 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1026/readyCompo"]
+visible = false
+position = Vector2( 1299.66, -462.01 )
+texture = ExtResource( 17 )
+
+[node name="readyCompo2" type="Sprite" parent="rock6_1026/readyCompo"]
+position = Vector2( 3893.66, -69.7629 )
+texture = ExtResource( 19 )
+
+[node name="readyCompo3" type="Sprite" parent="rock6_1026/readyCompo/readyCompo2"]
+position = Vector2( -243.789, 27.9709 )
+texture = ExtResource( 20 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 18609, -12.1379 )
+texture = ExtResource( 21 )
+
+[node name="rock4_1024" type="Sprite" parent="rock6_1026/rock2_1024"]
+position = Vector2( 67.1094, 10.3247 )
+texture = ExtResource( 22 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1026/rock2_1024"]
+position = Vector2( 24.625, 271.195 )
+texture = ExtResource( 23 )
+
+[node name="stone1" type="Sprite" parent="rock6_1026/rock2_1024"]
+position = Vector2( 1198.54, -256.197 )
+texture = ExtResource( 24 )
+
+[node name="stone3" type="Sprite" parent="rock6_1026/rock2_1024"]
+position = Vector2( 1156.5, -306.654 )
+texture = ExtResource( 25 )
+
+[node name="stone5" type="Sprite" parent="rock6_1026/rock2_1024"]
+position = Vector2( 1732.47, -338.711 )
+rotation = 0.283982
+texture = ExtResource( 26 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1026/rock2_1024"]
+position = Vector2( 239.766, -92.9689 )
+texture = ExtResource( 15 )
+
+[node name="stone1" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 25827.8, -222.387 )
+texture = ExtResource( 24 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1026/stone1"]
+position = Vector2( 364.826, -10.2363 )
+texture = ExtResource( 17 )
+
+[node name="stone2" type="Sprite" parent="rock6_1026/stone1"]
+position = Vector2( 143.084, -170.289 )
+rotation = -0.875148
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1026/stone1"]
+position = Vector2( 1025.54, 533.453 )
+rotation = 0.0730889
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1026/stone1"]
+position = Vector2( 1477.42, 527.733 )
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="stone5" type="Sprite" parent="rock6_1026/stone1"]
+position = Vector2( 1929.3, 584.933 )
+rotation = 0.187613
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1025" type="Sprite" parent="rock6_1026/stone1"]
+position = Vector2( 2327.21, 246.664 )
+scale = Vector2( 1.26936, 1.24503 )
+texture = ExtResource( 12 )
+
+[node name="readyCompo3" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 34978.7, -264.706 )
+texture = ExtResource( 18 )
+
+[node name="stone4" type="Sprite" parent="rock6_1026/readyCompo3"]
+position = Vector2( 790.633, -122.758 )
+texture = ExtResource( 27 )
+
+[node name="stone1" type="Sprite" parent="rock6_1026/readyCompo3"]
+position = Vector2( 751.082, -15.6782 )
+texture = ExtResource( 24 )
+
+[node name="stone2" type="Sprite" parent="rock6_1026/readyCompo3"]
+position = Vector2( 1007.32, -38.9731 )
+texture = ExtResource( 14 )
+
+[node name="readyCompo2" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 42321.8, -222.164 )
+texture = ExtResource( 19 )
+
+[node name="rock1_1025" type="Sprite" parent="rock6_1026/readyCompo2"]
+position = Vector2( -1141.38, 111.788 )
+texture = ExtResource( 15 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1026/readyCompo2"]
+position = Vector2( -1236.25, 153.531 )
+texture = ExtResource( 21 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1026/readyCompo2"]
+position = Vector2( -1095.41, 407.443 )
+texture = ExtResource( 23 )
+
+[node name="stone3" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 45258.8, 205.132 )
+scale = Vector2( 1.46235, 1.44664 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1026/stone3"]
+position = Vector2( 434.721, 68.6401 )
+rotation = 0.284972
+scale = Vector2( 0.888969, 0.968042 )
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1026/stone3"]
+position = Vector2( 280.279, 80.0802 )
+rotation = 0.192582
+scale = Vector2( 1.17153, 1.13826 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1024" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 53252.4, -374.823 )
+texture = ExtResource( 12 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1026/rock6_1024"]
+position = Vector2( 686.402, 349.223 )
+texture = ExtResource( 15 )
+
+[node name="rock7_1024" type="Sprite" parent="rock6_1026/rock6_1024"]
+position = Vector2( 903.16, 361.265 )
+texture = ExtResource( 28 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1026/rock6_1024"]
+editor/display_folded = true
+position = Vector2( -1925.46, 441.764 )
+texture = ExtResource( 21 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1026/rock6_1024/rock2_1024"]
+position = Vector2( -298.664, -77.8967 )
+texture = ExtResource( 15 )
+
+[node name="rock3_1024" type="Sprite" parent="rock6_1026/rock6_1024"]
+position = Vector2( -1978.54, 386.686 )
+texture = ExtResource( 16 )
+
+[node name="rock4_1024" type="Sprite" parent="rock6_1026/rock6_1024"]
+position = Vector2( -1848.83, 395.464 )
+texture = ExtResource( 22 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1026/rock6_1024"]
+position = Vector2( 714.902, 660.529 )
+texture = ExtResource( 23 )
+
+[node name="stone4" type="Sprite" parent="rock6_1026"]
+editor/display_folded = true
+position = Vector2( 57137.9, -197.909 )
+rotation = 0.179078
+texture = ExtResource( 14 )
+
+[node name="stone5" type="Sprite" parent="rock6_1026/stone4"]
+position = Vector2( 344.707, -139.71 )
+texture = ExtResource( 14 )
+
+[node name="stone7" type="Sprite" parent="rock6_1026/stone4"]
+position = Vector2( 941.094, -170.354 )
+scale = Vector2( 1.02181, 1.16757 )
+texture = ExtResource( 14 )
+
+[node name="stone6" type="Sprite" parent="rock6_1026/stone4"]
+position = Vector2( 694.621, -98.126 )
+rotation = 0.28145
+scale = Vector2( 1.03534, 1.04562 )
+texture = ExtResource( 14 )
+
+[node name="stone8" type="Sprite" parent="rock6_1026/stone4"]
+position = Vector2( 703.402, 581.435 )
+rotation = 1.63764e-005
+scale = Vector2( 1.49, 1.49686 )
+texture = ExtResource( 14 )
+
+[node name="stone9" type="Sprite" parent="rock6_1026/stone4"]
+position = Vector2( 1040.32, 377.722 )
+rotation = -0.145082
+scale = Vector2( 1.43853, 1.37926 )
+texture = ExtResource( 14 )
+
+[node name="stone10" type="Sprite" parent="rock6_1026/stone4"]
+position = Vector2( 266.473, 465.341 )
+rotation = -0.179078
+scale = Vector2( 1.27869, 1.24 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1027" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 127252, 1184.08 )
+texture = ExtResource( 12 )
+
+[node name="stone2" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 2891.14, -316.442 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1027/stone2"]
+position = Vector2( 434.721, 68.6401 )
+rotation = 0.284972
+scale = Vector2( 0.888969, 0.968042 )
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1027/stone2"]
+position = Vector2( 280.279, 80.0802 )
+rotation = 0.192582
+scale = Vector2( 1.17153, 1.13826 )
+texture = ExtResource( 14 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1027/stone2"]
+editor/display_folded = true
+position = Vector2( 1295.65, 293.501 )
+texture = ExtResource( 15 )
+
+[node name="rock1_1025" type="Sprite" parent="rock6_1027/stone2/rock1_1024"]
+position = Vector2( 148.224, -16.1219 )
+texture = ExtResource( 15 )
+
+[node name="rock3_1024" type="Sprite" parent="rock6_1027/stone2/rock1_1024"]
+position = Vector2( 286.62, 100.334 )
+texture = ExtResource( 16 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 10920.2, -239.841 )
+texture = ExtResource( 17 )
+
+[node name="readyCompo" type="Sprite" parent="rock6_1027/readyCompo1"]
+position = Vector2( -826.874, 49.9297 )
+texture = ExtResource( 18 )
+
+[node name="stone2" type="Sprite" parent="rock6_1027/readyCompo1"]
+position = Vector2( 458.649, 527.848 )
+scale = Vector2( 1.55237, 1.53691 )
+texture = ExtResource( 14 )
+
+[node name="readyCompo" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 11405.8, 389.492 )
+texture = ExtResource( 18 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1027/readyCompo"]
+visible = false
+position = Vector2( 1299.66, -462.01 )
+texture = ExtResource( 17 )
+
+[node name="readyCompo2" type="Sprite" parent="rock6_1027/readyCompo"]
+position = Vector2( 3893.66, -69.7629 )
+texture = ExtResource( 19 )
+
+[node name="readyCompo3" type="Sprite" parent="rock6_1027/readyCompo/readyCompo2"]
+position = Vector2( -243.789, 27.9709 )
+texture = ExtResource( 20 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 18609, -12.1379 )
+texture = ExtResource( 21 )
+
+[node name="rock4_1024" type="Sprite" parent="rock6_1027/rock2_1024"]
+position = Vector2( 67.1094, 10.3247 )
+texture = ExtResource( 22 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1027/rock2_1024"]
+position = Vector2( 24.625, 271.195 )
+texture = ExtResource( 23 )
+
+[node name="stone1" type="Sprite" parent="rock6_1027/rock2_1024"]
+position = Vector2( 1198.54, -256.197 )
+texture = ExtResource( 24 )
+
+[node name="stone3" type="Sprite" parent="rock6_1027/rock2_1024"]
+position = Vector2( 1156.5, -306.654 )
+texture = ExtResource( 25 )
+
+[node name="stone5" type="Sprite" parent="rock6_1027/rock2_1024"]
+position = Vector2( 1732.47, -338.711 )
+rotation = 0.283982
+texture = ExtResource( 26 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1027/rock2_1024"]
+position = Vector2( 239.766, -92.9689 )
+texture = ExtResource( 15 )
+
+[node name="stone1" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 25827.8, -222.387 )
+texture = ExtResource( 24 )
+
+[node name="readyCompo1" type="Sprite" parent="rock6_1027/stone1"]
+position = Vector2( 364.826, -10.2363 )
+texture = ExtResource( 17 )
+
+[node name="stone2" type="Sprite" parent="rock6_1027/stone1"]
+position = Vector2( 143.084, -170.289 )
+rotation = -0.875148
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1027/stone1"]
+position = Vector2( 1025.54, 533.453 )
+rotation = 0.0730889
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1027/stone1"]
+position = Vector2( 1477.42, 527.733 )
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="stone5" type="Sprite" parent="rock6_1027/stone1"]
+position = Vector2( 1929.3, 584.933 )
+rotation = 0.187613
+scale = Vector2( 1.37199, 1.42822 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1025" type="Sprite" parent="rock6_1027/stone1"]
+position = Vector2( 2327.21, 246.664 )
+scale = Vector2( 1.26936, 1.24503 )
+texture = ExtResource( 12 )
+
+[node name="readyCompo3" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 34978.7, -264.706 )
+texture = ExtResource( 18 )
+
+[node name="stone4" type="Sprite" parent="rock6_1027/readyCompo3"]
+position = Vector2( 790.633, -122.758 )
+texture = ExtResource( 27 )
+
+[node name="stone1" type="Sprite" parent="rock6_1027/readyCompo3"]
+position = Vector2( 751.082, -15.6782 )
+texture = ExtResource( 24 )
+
+[node name="stone2" type="Sprite" parent="rock6_1027/readyCompo3"]
+position = Vector2( 1007.32, -38.9731 )
+texture = ExtResource( 14 )
+
+[node name="readyCompo2" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 42321.8, -222.164 )
+texture = ExtResource( 19 )
+
+[node name="rock1_1025" type="Sprite" parent="rock6_1027/readyCompo2"]
+position = Vector2( -1141.38, 111.788 )
+texture = ExtResource( 15 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1027/readyCompo2"]
+position = Vector2( -1236.25, 153.531 )
+texture = ExtResource( 21 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1027/readyCompo2"]
+position = Vector2( -1095.41, 407.443 )
+texture = ExtResource( 23 )
+
+[node name="stone3" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 45258.8, 205.132 )
+scale = Vector2( 1.46235, 1.44664 )
+texture = ExtResource( 14 )
+
+[node name="stone4" type="Sprite" parent="rock6_1027/stone3"]
+position = Vector2( 434.721, 68.6401 )
+rotation = 0.284972
+scale = Vector2( 0.888969, 0.968042 )
+texture = ExtResource( 14 )
+
+[node name="stone3" type="Sprite" parent="rock6_1027/stone3"]
+position = Vector2( 280.279, 80.0802 )
+rotation = 0.192582
+scale = Vector2( 1.17153, 1.13826 )
+texture = ExtResource( 14 )
+
+[node name="rock6_1024" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 53252.4, -374.823 )
+texture = ExtResource( 12 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1027/rock6_1024"]
+position = Vector2( 686.402, 349.223 )
+texture = ExtResource( 15 )
+
+[node name="rock7_1024" type="Sprite" parent="rock6_1027/rock6_1024"]
+position = Vector2( 903.16, 361.265 )
+texture = ExtResource( 28 )
+
+[node name="rock2_1024" type="Sprite" parent="rock6_1027/rock6_1024"]
+editor/display_folded = true
+position = Vector2( -1925.46, 441.764 )
+texture = ExtResource( 21 )
+
+[node name="rock1_1024" type="Sprite" parent="rock6_1027/rock6_1024/rock2_1024"]
+position = Vector2( -298.664, -77.8967 )
+texture = ExtResource( 15 )
+
+[node name="rock3_1024" type="Sprite" parent="rock6_1027/rock6_1024"]
+position = Vector2( -1978.54, 386.686 )
+texture = ExtResource( 16 )
+
+[node name="rock4_1024" type="Sprite" parent="rock6_1027/rock6_1024"]
+position = Vector2( -1848.83, 395.464 )
+texture = ExtResource( 22 )
+
+[node name="rock5_1024" type="Sprite" parent="rock6_1027/rock6_1024"]
+position = Vector2( 714.902, 660.529 )
+texture = ExtResource( 23 )
+
+[node name="stone4" type="Sprite" parent="rock6_1027"]
+editor/display_folded = true
+position = Vector2( 57137.9, -197.909 )
+rotation = 0.179078
+texture = ExtResource( 14 )
+
+[node name="stone5" type="Sprite" parent="rock6_1027/stone4"]
+position = Vector2( 344.707, -139.71 )
+texture = ExtResource( 14 )
+
+[node name="stone7" type="Sprite" parent="rock6_1027/stone4"]
+position = Vector2( 941.094, -170.354 )
+scale = Vector2( 1.02181, 1.16757 )
+texture = ExtResource( 14 )
+
+[node name="stone6" type="Sprite" parent="rock6_1027/stone4"]
+position = Vector2( 694.621, -98.126 )
+rotation = 0.28145
+scale = Vector2( 1.03534, 1.04562 )
+texture = ExtResource( 14 )
+
+[node name="stone8" type="Sprite" parent="rock6_1027/stone4"]
+position = Vector2( 703.402, 581.435 )
+rotation = 1.63764e-005
+scale = Vector2( 1.49, 1.49686 )
+texture = ExtResource( 14 )
+
+[node name="stone9" type="Sprite" parent="rock6_1027/stone4"]
+position = Vector2( 1040.32, 377.722 )
+rotation = -0.145082
+scale = Vector2( 1.43853, 1.37926 )
+texture = ExtResource( 14 )
+
+[node name="stone10" type="Sprite" parent="rock6_1027/stone4"]
+position = Vector2( 266.473, 465.341 )
+rotation = -0.179078
+scale = Vector2( 1.27869, 1.24 )
+texture = ExtResource( 14 )
