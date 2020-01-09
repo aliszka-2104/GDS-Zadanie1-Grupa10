@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TileSets/Backgrounds.tres" type="TileSet" id=1]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2( -800, 100 )
+transform = Transform2D( 1, 0, 0, 1, -800, 100 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.05, 1 )
+
+[node name="Sky" type="TileMap" parent="ParallaxLayer3"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1024, 1024 )
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.01, 1 )
+
+[node name="Sky" type="TileMap" parent="ParallaxLayer"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1024, 1024 )
+format = 1
+tile_data = PoolIntArray( 0, 6, 0, 1, 6, 0, 12, 5, 0 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 1 )
+
+[node name="Mountains" type="TileMap" parent="ParallaxLayer2"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1024, 1024 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0 )

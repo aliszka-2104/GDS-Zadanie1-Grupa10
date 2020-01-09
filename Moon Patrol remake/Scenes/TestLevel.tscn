@@ -1,25 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TileSets/Backgrounds.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/TilePlaceholderReplacement.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Prefabs/Level design/Alien formation.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Prefabs/Level design/Alien_Curosant.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ParallaxBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien formation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Prefabs/Level design/Alien_Curosant.tscn" type="PackedScene" id=5]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
-
-[node name="Sky" type="TileMap" parent="Background"]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 1024, 1024 )
-format = 1
-tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0 )
-
-[node name="Mountains" type="TileMap" parent="Background"]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 1024, 1024 )
-format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0 )
 
 [node name="Windrocks" type="TileMap" parent="Background"]
 position = Vector2( 0, 512 )
@@ -38,13 +27,15 @@ format = 1
 tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 3, 0, 5, 3, 0, 6, 4, 0, 7, 4, 0, 8, 3, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 20, 4, 0, 21, 4, 0, 22, 4, 0, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0 )
 script = ExtResource( 2 )
 
+[node name="ParallaxBackground" parent="Background" instance=ExtResource( 3 )]
+
 [node name="Obstacles" type="Node2D" parent="."]
 position = Vector2( 0, 1250 )
 
-[node name="Alien formation" parent="." instance=ExtResource( 3 )]
+[node name="Alien formation" parent="." instance=ExtResource( 4 )]
 position = Vector2( 8974, 256 )
 
-[node name="Alien" parent="Alien formation" instance=ExtResource( 4 )]
+[node name="Alien" parent="Alien formation" instance=ExtResource( 5 )]
 position = Vector2( 498, -18 )
 
 [node name="Checkpoints" type="Node2D" parent="."]
