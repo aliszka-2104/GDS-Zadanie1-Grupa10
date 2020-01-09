@@ -1,7 +1,7 @@
 extends Area2D
 
 export var distance = 10
-export var speed = .1
+export var speed = .01
 
 var positionLeft
 var positionRight
@@ -10,19 +10,22 @@ var movingLeft = true
 var moving = false
 var t=0
 var newpos
+var offset=0
 
 func _ready():
 	positionLeft = get_parent().get_node("PositionLeft")
 	positionRight = get_parent().get_node("PositionRight")
 	newpos=position
-	
+	offset = get_parent().position.x-position.x
 	
 func _physics_process(delta):
 #	if !Global.game_started or !get_parent().shouldMove:
 #		return
 		
 	if abs(position.x-newpos.x)<distance:
-		var pos = rand_range(-5,5)*100
+		var pos = rand_range(-5,5)*1000
+		pos = clamp(pos,0-offset,get_viewport_rect().size.x-offset)
+		pos*=2.4
 		newpos = Vector2(pos,position.y)
 		t=0
 	
