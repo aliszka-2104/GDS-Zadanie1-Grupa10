@@ -23,7 +23,7 @@ func calculate_curve():
 		return
 	started=true
 	pos=position
-	r=abs(alienBoundaryLeft-get_parent().new_position.x)
+	r=min(abs(alienBoundaryRight-get_parent().new_position.x),abs(alienBoundaryLeft-get_parent().new_position.x))
 	print(r)
 	CircularMovement.add_point(pos+Vector2(r,0),Vector2(0,-r))
 	CircularMovement.add_point(pos+Vector2(0,r2),Vector2(r,0))

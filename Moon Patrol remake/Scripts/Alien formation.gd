@@ -50,8 +50,8 @@ func _process(delta):
 	shoot_timer+=delta
 	if shoot_timer>shoot_delay:
 		shoot_timer=0
-		print(rand_range(1,multiplas.size()+1))
-		multiplas[0].canShoot=true
+		var i=rand_range(0,multiplas.size())
+		multiplas[i].canShoot=true
 #	if !Global.game_started:
 #		global_position=initial_position
 #		follow=false
@@ -60,6 +60,7 @@ func reload_formation():
 	global_position=initial_position
 	global_position.y=player.global_position.y-offset.y
 	follow=false
+	shoot_timer=0
 
 func _on_VisibilityNotifier2D_screen_entered():
 	follow=true

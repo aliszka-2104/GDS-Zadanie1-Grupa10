@@ -2,13 +2,13 @@ extends Node2D
 
 const verticalBulletSpeed = 3000
 const horizontalBulletSpeed = 1500
-const alienBulletSpeed = 1000
+const alienBulletSpeed = 500
 const alienBulletDelayInSeconds = 5
 
 const base_speed = 1000
 const speed_change_step = 10
 const speed_up_value = 500
-const slow_down_value = 500
+const slow_down_value = 100
 const jump_speed = 500
 const gravity = 1000
 
@@ -94,6 +94,7 @@ func set_parameters():
 	game_timer=0
 	totalPoints=0
 	current_speed=base_speed
+	bullets = get_node("/root/Scene/Bullets")
 	
 	alienPositions.clear()
 	alienPositionsIsFree.clear()
@@ -140,7 +141,7 @@ func player_death():
 	pass
 
 func reload_checkpoint():
-	bullets.get_children().clear()
+	
 	print("reloading")
 	player.visible=true
 	can_move=true
@@ -149,6 +150,8 @@ func reload_checkpoint():
 	player_start_pos.x=current_checkpoint_position
 	player.position=player_start_pos
 	get_node("/root/Scene/Temporary holes").get_children().clear()
+	get_node("/root/Scene/Bullets").get_children().clear()
+	
 	emit_signal("reload")
 	pass
 	
