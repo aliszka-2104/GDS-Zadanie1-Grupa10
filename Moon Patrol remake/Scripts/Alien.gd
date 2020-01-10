@@ -50,6 +50,7 @@ func _on_timer_timeout():
 
 func on_scene_entered():
 	print("start")
+	position=Global.camera.position+Vector2(500,0)
 	shouldMove = true
 	canShoot=true
 

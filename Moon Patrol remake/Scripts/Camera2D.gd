@@ -57,7 +57,7 @@ func _move(delta,pos):
 #	position = position.linear_interpolate(newpos,delta*camera_speed)
 #	if newpos.x<position.x:
 #		camera_speed=50
-#	position = position.linear_interpolate(newpos,delta*camera_speed)
-	position = position.linear_interpolate(newpos,t)
+	position = position.linear_interpolate(newpos,delta*camera_speed)
+#	position = position.linear_interpolate(newpos,t)
 	global_position.y=pos_y
 	

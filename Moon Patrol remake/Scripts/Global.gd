@@ -38,6 +38,7 @@ var game_timer = 0
 var paused = false
 
 const EXPLOSION_TESLA = preload("res://Scenes/Prefabs/Explosions/TeslaExplosion.tscn")
+var camera
 var player
 var player_start_pos=Vector2()
 
@@ -59,6 +60,7 @@ func _ready():
 	placeholdersDictionary["ground1024"] = preload("res://Scenes/Prefabs/Ground.tscn")
 	placeholdersDictionary["ground1_1024"] = preload("res://Scenes/Prefabs/Ground2.tscn")
 	player = get_node("/root/Scene/Player")
+	camera = get_node("/root/Scene/Player/Camera2D")
 	if(player):
 		current_checkpoint_position=player.global_position.x
 	add_child(reload_game_timer)
@@ -87,11 +89,13 @@ func player_death():
 	emit_signal("lives_changed")
 	player = get_node("/root/Scene/Player")
 	drawExplosion(EXPLOSION_TESLA,player.global_position)
+	player.visible=false
 	reload_game_timer.start(2)
 	pass
 
 func reload_checkpoint():
 	print("reloading")
+	player.visible=true
 	can_move=true
 	game_started=true
 	paused=false
