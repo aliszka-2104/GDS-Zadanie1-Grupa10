@@ -9,7 +9,7 @@ const base_speed = 1000
 const speed_change_step = 10
 const speed_up_value = 500
 const slow_down_value = 100
-const jump_speed = 500
+const jump_speed = 600
 const gravity = 1000
 
 const camera_speed=10
