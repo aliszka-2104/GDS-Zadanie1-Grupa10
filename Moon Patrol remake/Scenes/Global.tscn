@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Global.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Summary.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Font100.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=5]
 
 [node name="Global" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,6 +29,8 @@ margin_right = 300.0
 margin_bottom = 50.0
 custom_fonts/font = ExtResource( 4 )
 text = "GAME OVER"
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource( 5 )]
 [connection signal="checkpoint_changed" from="." to="CanvasLayer/HUD" method="_on_Global_checkpoint_changed"]
 [connection signal="draw_summary" from="." to="CanvasLayer/Summary" method="_on_Global_draw_summary"]
 [connection signal="lives_changed" from="." to="CanvasLayer/HUD" method="_on_Global_lives_changed"]

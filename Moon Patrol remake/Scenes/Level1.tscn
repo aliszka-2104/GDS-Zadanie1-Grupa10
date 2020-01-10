@@ -395,6 +395,7 @@ is_summary = true
 time_to_reach = 100
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, -120 )
 
 [node name="AF Point 0" parent="Enemies" instance=ExtResource( 9 )]

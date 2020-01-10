@@ -14,17 +14,19 @@ const gravity = 1000
 
 const camera_speed=10
 
+const LIVES = 3
+
 const max_speed = base_speed+speed_up_value
 const min_speed = base_speed-slow_down_value
 const speed_amplitude = max_speed-min_speed
-var current_speed=1000
+var current_speed = base_speed
 
 var game_started = false
 var can_move = true
 
-var totalPoints=0
-var lives = 5
-var current_checkpoint = ""
+var totalPoints
+var lives
+var current_checkpoint
 var current_checkpoint_position
 
 signal score_changed
@@ -34,12 +36,14 @@ signal draw_summary
 signal reload
 var reload_game_timer = Timer.new()
 var summary_timer = Timer.new()
-var game_timer = 0
-var paused = false
+var game_timer=0
+var paused = true
 
 const EXPLOSION_TESLA = preload("res://Scenes/Prefabs/Explosions/TeslaExplosion.tscn")
+const MAIN = preload("res://Scenes/Main.tscn")
 var camera
 var player
+var bullets
 var player_start_pos=Vector2()
 var alienPositionsNode
 var alienPositions=[]
@@ -53,32 +57,56 @@ var placeholdersDictionary = {}
 
 func _ready():
 	randomize()
-##	placeholdersDictionary["hole"] = preload("res://Scenes/Prefabs/Hole.tscn")
-##	placeholdersDictionary["hole1"] = preload("res://Scenes/Prefabs/Hole1.tscn")
-#	placeholdersDictionary["rock1"] = preload("res://Scenes/Prefabs/Rock1.tscn")
-##	placeholdersDictionary["rock2"] = preload("res://Scenes/Prefabs/Rock2.tscn")
-##	placeholdersDictionary["rock3"] = preload("res://Scenes/Prefabs/Rock3.tscn")
-#	placeholdersDictionary["aliens"] = preload("res://Scenes/Prefabs/Alien.tscn")
-#	placeholdersDictionary["mine"] = preload("res://Scenes/Prefabs/Mine.tscn")
 	placeholdersDictionary["ground1024"] = preload("res://Scenes/Prefabs/Ground.tscn")
 	placeholdersDictionary["ground1_1024"] = preload("res://Scenes/Prefabs/Ground2.tscn")
+	
 	player = get_node("/root/Scene/Player")
 	camera = get_node("/root/Scene/Player/Camera2D")
+	bullets = get_node("/root/Scene/Bullets")
+	alienPositionsNode=  get_node("/root/Scene/Player/Camera2D/AlienPositions").get_children()
+	
 	if(player):
 		current_checkpoint_position=player.global_position.x
+	
 	add_child(reload_game_timer)
 	add_child(summary_timer)
 	reload_game_timer.connect("timeout",self,"reload_game")
 	summary_timer.connect("timeout",self,"hide_summary")
-	emit_signal("score_changed")
-	emit_signal("lives_changed")
+	
 	if(player):
 		player_start_pos.y=player.global_position.y
 	
-	alienPositionsNode=  get_node("/root/Scene/Player/Camera2D/AlienPositions").get_children()
+	set_parameters()
+
+func new_game():
+	paused=true
+	get_node("CanvasLayer/Menu").visible=true
+	game_over_label.visible=false
+	get_tree().reload_current_scene()
+	set_parameters()
+
+func set_parameters():
+	
+	lives=LIVES
+	current_checkpoint=""
+	game_started = false
+	can_move = true
+	game_timer=0
+	totalPoints=0
+	current_speed=base_speed
+	
+	alienPositions.clear()
+	alienPositionsIsFree.clear()
+	
 	for i in range(0,alienPositionsNode.size()):
 		alienPositions.append(alienPositionsNode[i].position)
 		alienPositionsIsFree.append(true)
+	
+	emit_signal("score_changed")
+	emit_signal("lives_changed")
+	emit_signal("checkpoint_changed")
+	
+	pass
 
 func get_free_position():
 	var i = alienPositionsIsFree.find(true)
@@ -87,6 +115,8 @@ func get_free_position():
 
 func free_position(pos):
 	var i = alienPositions.find(pos)
+	if i<0:
+		return
 	alienPositionsIsFree[i]=true
 
 func _physics_process(delta):
@@ -110,6 +140,7 @@ func player_death():
 	pass
 
 func reload_checkpoint():
+	bullets.get_children().clear()
 	print("reloading")
 	player.visible=true
 	can_move=true
@@ -117,13 +148,13 @@ func reload_checkpoint():
 	paused=false
 	player_start_pos.x=current_checkpoint_position
 	player.position=player_start_pos
-	for child in get_node("/root/Scene/Temporary holes").get_children():
-		child.queue_free()
+	get_node("/root/Scene/Temporary holes").get_children().clear()
 	emit_signal("reload")
 	pass
 	
 func game_over():
 	game_over_label.visible=true
+	new_game()
 	pass
 
 func reload_game():

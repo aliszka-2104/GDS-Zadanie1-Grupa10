@@ -62,7 +62,7 @@ func _shoot():
 	else:
 		bullet = BULLET.instance()
 	bullet.position=$Body/Position2D.global_position
-	get_tree().root.add_child(bullet)
+	get_node("/root/Scene/Bullets").add_child(bullet)
 	canShoot=false
 	timer.start(alien_bullet_delay)
 	

@@ -16,7 +16,12 @@ const ALIEN_BULLET_HOLE = preload("res://Scenes/Prefabs/Explosions/AlienBulletMa
 const BULLET_EXPLOSION = preload("res://Scenes/Prefabs/Explosions/BulletExplosion.tscn")
 const HOLE = preload("res://Scenes/Prefabs/Level design/Obstacles/Hole.tscn")
 
+var timer = Timer.new()
+
 func _ready():
+	add_child(timer)
+	timer.connect("timeout",self,"_on_timer_timeout")
+	
 	match bulletType:
 		BulletType.ENEMY:
 			velocity.y = Global.alienBulletSpeed
@@ -30,7 +35,13 @@ func _ready():
 			velocity.y = -Global.verticalBulletSpeed
 			velocity.x= Global.current_speed
 	
+	if bulletType==BulletType.HORIZONTAL:
+		timer.start(0.5)
 	
+func _on_timer_timeout():
+	Global.drawExplosion(BULLET_EXPLOSION,global_position)
+	queue_free()
+
 func _process(delta):
 	translate(velocity*delta)
 
