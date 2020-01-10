@@ -5,7 +5,6 @@
 [ext_resource path="res://Sprites/aliens/curosant.png" type="Texture" id=3]
 
 [node name="Alien" type="Node2D"]
-position = Vector2( 512, 376 )
 script = ExtResource( 1 )
 enemy_type = 1
 

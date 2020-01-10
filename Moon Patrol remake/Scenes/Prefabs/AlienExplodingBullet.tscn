@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ExplodingBullet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/aliens/aliensAmmo.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -10,7 +10,6 @@ extents = Vector2( 10, 28 )
 collision_layer = 16
 collision_mask = 75
 script = ExtResource( 1 )
-bulletType = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

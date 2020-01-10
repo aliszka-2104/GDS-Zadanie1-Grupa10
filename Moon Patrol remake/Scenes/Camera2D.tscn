@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=1]
+
+[node name="Camera2D" type="Camera2D"]
+current = true
+zoom = Vector2( 2.4, 2.4 )
+script = ExtResource( 1 )
+
+[node name="HolePosition" type="Position2D" parent="."]
+position = Vector2( 1000, 740 )
+
+[node name="AlienPositions" type="Node2D" parent="."]
+position = Vector2( -1024, -768 )
+
+[node name="Position2D" type="Position2D" parent="AlienPositions"]
+position = Vector2( 1457, 341 )
+
+[node name="Position2D2" type="Position2D" parent="AlienPositions"]
+position = Vector2( 1228, 663 )
+
+[node name="Position2D3" type="Position2D" parent="AlienPositions"]
+position = Vector2( 585, 287 )
+
+[node name="Position2D4" type="Position2D" parent="AlienPositions"]
+position = Vector2( 701, 596 )
+
+[node name="Position2D5" type="Position2D" parent="AlienPositions"]
+position = Vector2( 973, 330 )
+
+[node name="Position2D6" type="Position2D" parent="AlienPositions"]
+position = Vector2( 1092, 466 )
+
+[node name="Position2D7" type="Position2D" parent="AlienPositions"]
+position = Vector2( 1511, 553 )
+
+[node name="Position2D8" type="Position2D" parent="AlienPositions"]
+position = Vector2( 337, 362 )
+
+[node name="AlienBoundary" type="Node2D" parent="."]
+position = Vector2( -1024, -768 )
+
+[node name="Left" type="Position2D" parent="AlienBoundary"]
+position = Vector2( 103, 569 )
+
+[node name="Right" type="Position2D" parent="AlienBoundary"]
+position = Vector2( 2038, 603 )

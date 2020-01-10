@@ -41,6 +41,9 @@ const EXPLOSION_TESLA = preload("res://Scenes/Prefabs/Explosions/TeslaExplosion.
 var camera
 var player
 var player_start_pos=Vector2()
+var alienPositionsNode
+var alienPositions=[]
+var alienPositionsIsFree=[]
 
 onready var summary = $"CanvasLayer/Summary"
 onready var game_over_label = $"CanvasLayer/Game over"
@@ -72,6 +75,19 @@ func _ready():
 	if(player):
 		player_start_pos.y=player.global_position.y
 	
+	alienPositionsNode=  get_node("/root/Scene/Player/Camera2D/AlienPositions").get_children()
+	for i in range(0,alienPositionsNode.size()):
+		alienPositions.append(alienPositionsNode[i].position)
+		alienPositionsIsFree.append(true)
+
+func get_free_position():
+	var i = alienPositionsIsFree.find(true)
+	alienPositionsIsFree[i]=false
+	return alienPositions[i]
+
+func free_position(pos):
+	var i = alienPositions.find(pos)
+	alienPositionsIsFree[i]=true
 
 func _physics_process(delta):
 	if !paused and Input.is_action_just_pressed("ui_right"):

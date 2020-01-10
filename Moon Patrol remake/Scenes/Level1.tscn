@@ -395,12 +395,10 @@ is_summary = true
 time_to_reach = 100
 
 [node name="Enemies" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, -120 )
 
 [node name="AF Point 0" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
-position = Vector2( 13000, -160 )
+position = Vector2( 11817, -347 )
 
 [node name="Alien2" parent="Enemies/AF Point 0" instance=ExtResource( 10 )]
 position = Vector2( -100, 360 )
@@ -409,7 +407,6 @@ position = Vector2( -100, 360 )
 position = Vector2( 240, 360 )
 
 [node name="AF PointA1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 16500, -160 )
 
 [node name="Alien" parent="Enemies/AF PointA1" instance=ExtResource( 11 )]
@@ -419,7 +416,6 @@ position = Vector2( 220, 360 )
 position = Vector2( -280, 360 )
 
 [node name="AF PointA2" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 21000, -160 )
 
 [node name="Alien" parent="Enemies/AF PointA2" instance=ExtResource( 10 )]
@@ -429,7 +425,6 @@ position = Vector2( 160, 360 )
 position = Vector2( -240, 360 )
 
 [node name="AF PointC1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 33000, -160 )
 
 [node name="Alien" parent="Enemies/AF PointC1" instance=ExtResource( 11 )]
@@ -442,17 +437,15 @@ position = Vector2( -240, 345.54 )
 position = Vector2( 525.153, 360 )
 
 [node name="AF PointC2" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 36000, -160 )
+
+[node name="Alien2" parent="Enemies/AF PointC2" instance=ExtResource( 12 )]
+position = Vector2( 151.742, 360 )
 
 [node name="Alien" parent="Enemies/AF PointC2" instance=ExtResource( 12 )]
 position = Vector2( -269.172, 360 )
 
-[node name="Alien" parent="Enemies/AF PointC2/Alien" instance=ExtResource( 12 )]
-position = Vector2( 420.914, 0 )
-
 [node name="AF PointD1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 38500, -160 )
 
 [node name="Alien" parent="Enemies/AF PointD1" instance=ExtResource( 10 )]
@@ -462,7 +455,6 @@ position = Vector2( 151.156, 360 )
 position = Vector2( -264.418, 360 )
 
 [node name="AF PointE1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 44800, -160 )
 
 [node name="Alien" parent="Enemies/AF PointE1" instance=ExtResource( 12 )]
@@ -475,7 +467,6 @@ position = Vector2( -236.031, 360 )
 position = Vector2( -593.867, 360 )
 
 [node name="AF PointE2" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 47500, -160 )
 
 [node name="Alien" parent="Enemies/AF PointE2" instance=ExtResource( 11 )]
@@ -485,7 +476,6 @@ position = Vector2( 197.461, 360 )
 position = Vector2( -95.25, 360 )
 
 [node name="AF PointG1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 69800, -157.391 )
 
 [node name="Alien" parent="Enemies/AF PointG1" instance=ExtResource( 10 )]
@@ -498,7 +488,6 @@ position = Vector2( -313.469, 516.747 )
 position = Vector2( -28.2344, 364.022 )
 
 [node name="AF PointG2" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 72500, -160 )
 
 [node name="Alien" parent="Enemies/AF PointG2" instance=ExtResource( 12 )]
@@ -508,7 +497,6 @@ position = Vector2( 174.414, 415.133 )
 position = Vector2( -249.812, 425.174 )
 
 [node name="AF PointH1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 76100, -160 )
 
 [node name="Alien" parent="Enemies/AF PointH1" instance=ExtResource( 10 )]
@@ -518,7 +506,6 @@ position = Vector2( 180.234, 411.926 )
 position = Vector2( -327.164, 408.754 )
 
 [node name="AF PointH2" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 79693.7, -164.162 )
 
 [node name="Alien" parent="Enemies/AF PointH2" instance=ExtResource( 12 )]
@@ -528,7 +515,6 @@ position = Vector2( 164.883, 384.367 )
 position = Vector2( -266.219, 384.258 )
 
 [node name="AF PointL1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 139500, -160 )
 
 [node name="Alien" parent="Enemies/AF PointL1" instance=ExtResource( 10 )]
@@ -544,7 +530,6 @@ position = Vector2( -45.7031, 346.146 )
 position = Vector2( 145.203, 562.095 )
 
 [node name="AF PointM1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 144000, -160 )
 
 [node name="Alien" parent="Enemies/AF PointM1" instance=ExtResource( 11 )]
@@ -557,7 +542,6 @@ position = Vector2( -289.172, 363.129 )
 position = Vector2( -60.5938, 510.594 )
 
 [node name="AF PointM2" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 148200, -160 )
 
 [node name="Alien" parent="Enemies/AF PointM2" instance=ExtResource( 12 )]
@@ -573,7 +557,6 @@ position = Vector2( -159.391, 537.434 )
 position = Vector2( -717.406, 596.955 )
 
 [node name="AF PointN1" parent="Enemies" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 155218, -232.585 )
 
 [node name="Alien" parent="Enemies/AF PointN1" instance=ExtResource( 11 )]
