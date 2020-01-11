@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Hole.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Mine.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/obstacles/mine1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/obstacles/mine2.png" type="Texture" id=3]
 
@@ -15,11 +15,9 @@ animations = [ {
 [node name="Mine" type="Area2D"]
 collision_layer = 2
 script = ExtResource( 1 )
-jumpOverPoints = 50
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

@@ -25,13 +25,16 @@ var game_started = false
 var can_move = true
 
 var totalPoints
+var bestScore=0
 var lives
+var best_checkpoint
 var current_checkpoint
 var current_checkpoint_position
 
 signal score_changed
 signal lives_changed
 signal checkpoint_changed
+signal best_changed
 signal draw_summary
 signal reload
 var reload_game_timer = Timer.new()
@@ -194,6 +197,10 @@ func reload_game():
 func addPoints(points):
 	totalPoints+=points
 	emit_signal("score_changed")
+	if(totalPoints>=bestScore):
+		bestScore=totalPoints
+		best_checkpoint=current_checkpoint
+		emit_signal("best_changed")
 	
 func drawExplosion(explosionType,targetPosition):
 	var explosion = explosionType.instance()
