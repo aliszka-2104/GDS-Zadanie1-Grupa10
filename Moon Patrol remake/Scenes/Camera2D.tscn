@@ -14,28 +14,28 @@ position = Vector2( 1000, 740 )
 position = Vector2( -1024, -768 )
 
 [node name="Position2D" type="Position2D" parent="AlienPositions"]
-position = Vector2( 783, 422 )
+position = Vector2( 915, 588 )
 
 [node name="Position2D2" type="Position2D" parent="AlienPositions"]
-position = Vector2( 489, 418 )
+position = Vector2( 363, 521 )
 
 [node name="Position2D3" type="Position2D" parent="AlienPositions"]
-position = Vector2( 585, 287 )
+position = Vector2( 608, 236 )
 
 [node name="Position2D4" type="Position2D" parent="AlienPositions"]
-position = Vector2( 701, 596 )
+position = Vector2( 1204, 419 )
 
 [node name="Position2D5" type="Position2D" parent="AlienPositions"]
-position = Vector2( 973, 330 )
+position = Vector2( 658, 605 )
 
 [node name="Position2D6" type="Position2D" parent="AlienPositions"]
-position = Vector2( 255, 281 )
+position = Vector2( 186, 447 )
 
 [node name="Position2D7" type="Position2D" parent="AlienPositions"]
-position = Vector2( 772, 308 )
+position = Vector2( 772, 417 )
 
 [node name="Position2D8" type="Position2D" parent="AlienPositions"]
-position = Vector2( 337, 362 )
+position = Vector2( 983, 328 )
 
 [node name="AlienBoundary" type="Node2D" parent="."]
 position = Vector2( -1024, -768 )

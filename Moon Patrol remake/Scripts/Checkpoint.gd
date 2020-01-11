@@ -4,6 +4,7 @@ class_name Checkpoint
 
 export var letter = "A"
 export (bool)var is_summary = false
+export (bool)var end_game = false
 export (int)var time_to_reach=0
 
 func _ready():

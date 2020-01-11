@@ -378,9 +378,11 @@ letter = "N"
 position = Vector2( 164100, 800 )
 letter = "O"
 is_summary = true
+end_game = true
 time_to_reach = 100
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, -120 )
 
 [node name="AF Point 0" parent="Enemies" instance=ExtResource( 9 )]
@@ -763,7 +765,7 @@ texture = ExtResource( 15 )
 
 [node name="stone8" type="Sprite" parent="rock6_1025/stone4"]
 position = Vector2( 703.402, 581.435 )
-rotation = 1.63764e-05
+rotation = 1.63764e-005
 scale = Vector2( 1.49, 1.49686 )
 texture = ExtResource( 15 )
 
@@ -780,7 +782,6 @@ scale = Vector2( 1.27869, 1.24 )
 texture = ExtResource( 15 )
 
 [node name="rock6_1026" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64447.4, 1157.82 )
 texture = ExtResource( 13 )
 
@@ -948,7 +949,7 @@ texture = ExtResource( 24 )
 
 [node name="stone3" type="Sprite" parent="rock6_1026"]
 editor/display_folded = true
-position = Vector2( 45258.8, 205.132 )
+position = Vector2( 45109.6, 235.18 )
 scale = Vector2( 1.46235, 1.44664 )
 texture = ExtResource( 15 )
 
@@ -1021,7 +1022,7 @@ texture = ExtResource( 15 )
 
 [node name="stone8" type="Sprite" parent="rock6_1026/stone4"]
 position = Vector2( 703.402, 581.435 )
-rotation = 1.63764e-05
+rotation = 1.63764e-005
 scale = Vector2( 1.49, 1.49686 )
 texture = ExtResource( 15 )
 
@@ -1277,7 +1278,7 @@ texture = ExtResource( 15 )
 
 [node name="stone8" type="Sprite" parent="rock6_1027/stone4"]
 position = Vector2( 703.402, 581.435 )
-rotation = 1.63764e-05
+rotation = 1.63764e-005
 scale = Vector2( 1.49, 1.49686 )
 texture = ExtResource( 15 )
 

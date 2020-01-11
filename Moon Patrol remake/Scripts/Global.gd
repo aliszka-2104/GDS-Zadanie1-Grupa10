@@ -2,7 +2,7 @@ extends Node2D
 
 const verticalBulletSpeed = 3000
 const horizontalBulletSpeed = 1500
-const alienBulletSpeed = 500
+const alienBulletSpeed = 400
 const alienBulletDelayInSeconds = 5
 
 const base_speed = 1000
@@ -36,8 +36,10 @@ signal draw_summary
 signal reload
 var reload_game_timer = Timer.new()
 var summary_timer = Timer.new()
+var back_to_menu_timer = Timer.new()
 var game_timer=0
 var paused = true
+var game_won = false
 
 const EXPLOSION_TESLA = preload("res://Scenes/Prefabs/Explosions/TeslaExplosion.tscn")
 const MAIN = preload("res://Scenes/Main.tscn")
@@ -51,6 +53,7 @@ var alienPositionsIsFree=[]
 
 onready var summary = $"CanvasLayer/Summary"
 onready var game_over_label = $"CanvasLayer/Game over"
+onready var you_win_label = $"CanvasLayer/You win!"
 
 var placeholdersDictionary = {}
 
@@ -70,8 +73,10 @@ func _ready():
 	
 	add_child(reload_game_timer)
 	add_child(summary_timer)
+	add_child(back_to_menu_timer)
 	reload_game_timer.connect("timeout",self,"reload_game")
 	summary_timer.connect("timeout",self,"hide_summary")
+	back_to_menu_timer.connect("timeout",self,"back_to_menu")
 	
 	if(player):
 		player_start_pos.y=player.global_position.y
@@ -82,6 +87,7 @@ func new_game():
 	paused=true
 	get_node("CanvasLayer/Menu").visible=true
 	game_over_label.visible=false
+	you_win_label.visible=false
 	get_tree().reload_current_scene()
 	set_parameters()
 
@@ -91,6 +97,7 @@ func set_parameters():
 	current_checkpoint=""
 	game_started = false
 	can_move = true
+	game_won=false
 	game_timer=0
 	totalPoints=0
 	current_speed=base_speed
@@ -99,8 +106,8 @@ func set_parameters():
 	alienPositions.clear()
 	alienPositionsIsFree.clear()
 	
-	for i in range(0,alienPositionsNode.size()):
-		alienPositions.append(alienPositionsNode[i].position)
+	for i in range(0,get_node("/root/Scene/Player/Camera2D/AlienPositions").get_children().size()):
+		alienPositions.append(get_node("/root/Scene/Player/Camera2D/AlienPositions").get_children()[i].position)
 		alienPositionsIsFree.append(true)
 	
 	emit_signal("score_changed")
@@ -116,15 +123,21 @@ func get_free_position():
 
 func free_position(pos):
 	var i = alienPositions.find(pos)
-	if i<0:
-		return
+#	if i<0:
+#		return
 	alienPositionsIsFree[i]=true
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("help"):
+		help()
 	if !paused and Input.is_action_just_pressed("ui_right"):
 		game_started=true
 	if game_started:
 		game_timer+=delta
+
+func help():
+	lives+=1
+	emit_signal("lives_changed")
 
 func player_death():
 	if !can_move:
@@ -157,8 +170,18 @@ func reload_checkpoint():
 	
 func game_over():
 	game_over_label.visible=true
+	back_to_menu_timer.start(3)
+
+func back_to_menu():
+	back_to_menu_timer.stop()
 	new_game()
-	pass
+
+func victory():
+	game_started=false
+	paused=true
+	can_move=false
+	back_to_menu_timer.start(3)
+	you_win_label.visible=true
 
 func reload_game():
 	reload_game_timer.stop()
@@ -186,6 +209,8 @@ func checkpoint_passed(checkpoint):
 	if checkpoint.is_summary:
 		emit_signal("draw_summary",checkpoint)
 		summary()
+		if checkpoint.end_game:
+			game_won=true
 		
 func summary():
 	summary.visible=true
@@ -200,5 +225,7 @@ func hide_summary():
 	summary.visible=false
 	paused=false
 	game_started=true
+	if game_won:
+		victory()
 	
 	

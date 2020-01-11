@@ -13,7 +13,7 @@ var shouldMove = false
 var player
 var initial_position=Vector2()
 var move_to_position=false
-var new_position=Vector2()
+var new_position=position
 
 enum EnemyType{
 	PLATE,
@@ -26,15 +26,13 @@ func set_new_position(pos):
 	new_position=pos
 	get_node("Body").calculate_curve()
 
-func _move():
-	position=new_position
-
 func is_multipla():
 	if enemy_type==EnemyType.MULTIPLA:
 		return true
 	return false
 
 func _ready():
+	position.y=0
 	Global.connect("reload",self,"on_level_reload")
 	add_child(timer)
 	timer.connect("timeout",self,"_on_timer_timeout")
@@ -46,10 +44,10 @@ func _ready():
 func _physics_process(delta):
 	if !Global.game_started:
 		return
-		
-	if move_to_position:
-		_move()
-		move_to_position=false
+	
+	if abs(position.x-new_position.x)>5 or abs(position.y-new_position.y)>5:
+		position = position.linear_interpolate(new_position,delta*1)
+	
 	_shoot()
 	
 func _shoot():
@@ -102,6 +100,6 @@ func get_hit():
 	queue_free()
 	
 func on_level_reload():
-	Global.free_position(position)
+	Global.free_position(new_position)
 	position=initial_position
 	get_node("Body").position=get_node("Body").pos

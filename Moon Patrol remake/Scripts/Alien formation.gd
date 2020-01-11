@@ -68,10 +68,10 @@ func _on_VisibilityNotifier2D_screen_entered():
 	for child in others:
 		var pos = Global.get_free_position()
 		child.set_new_position(pos)
-		child._move()
+#		child._move()
 		child.move_to_position=true
 	for child in multiplas:
 		var pos = Global.get_free_position()
 		child.set_new_position(pos)
-		child._move()
+#		child._move()
 		child.move_to_position=true

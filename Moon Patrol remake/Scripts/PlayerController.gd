@@ -12,7 +12,6 @@ var slowDown=false
 func _ready():
 	bullets = get_parent().get_node("HorizontalBullets")
 	velocity.x=Global.base_speed
-
 func get_input():
 	
 	var speed_up = Input.is_action_pressed('ui_right')
@@ -29,6 +28,11 @@ func get_input():
 		slow_down()
 	if shoot:
 		_shoot()
+		
+	if Input.is_action_pressed("god_mode"):
+		$Area2D/CollisionShape2D2.disabled=true
+	if Input.is_action_pressed("god_mode_off"):
+		$Area2D/CollisionShape2D2.disabled=false
 
 func speed_up():
 	velocity.x += Global.speed_change_step

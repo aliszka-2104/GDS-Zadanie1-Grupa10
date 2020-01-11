@@ -30,6 +30,19 @@ margin_bottom = 50.0
 custom_fonts/font = ExtResource( 4 )
 text = "GAME OVER"
 
+[node name="You win!" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -50.0
+margin_right = 300.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 4 )
+text = "YOU WIN!"
+
 [node name="Menu" parent="CanvasLayer" instance=ExtResource( 5 )]
 [connection signal="checkpoint_changed" from="." to="CanvasLayer/HUD" method="_on_Global_checkpoint_changed"]
 [connection signal="draw_summary" from="." to="CanvasLayer/Summary" method="_on_Global_draw_summary"]
